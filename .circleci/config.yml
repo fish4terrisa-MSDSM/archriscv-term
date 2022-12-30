@@ -11,10 +11,9 @@ do_steps: &do_steps
       name: checkout build tree
       command: |
         mkdir -p ~/.ssh/
-        whoami
         pacman -Syy;
         pacman -S openssh --noconfirm;
-        
+        pacman -S git --noconfirm 
         ssh-keyscan -H github.com >> ~/.ssh/known_hosts
         if ! [ -d .git ]; then
           git clone --depth=1 $CIRCLE_REPOSITORY_URL ~/project;
