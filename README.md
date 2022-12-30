@@ -17,7 +17,7 @@ You can get the image using [CoelacanthusHex/archriscv-scriptlet](https://github
  - At least 500 MB of space on the internal storage.
  - Internet (if you want to install/update packages).
 ## Building
-To build this project ,you have to download the data.bin in the Release Page and put it in archriscv-app/app/src/main/assets/environment/data.bin 
+Just like normal gradle project ,run `cd archriscv-app && gradle build`
 ## Credits
 
 Archlinux riscv64 Term utilizes source code of the following projects:
