@@ -15,14 +15,12 @@ ANDROID_NDK_SHA256=403ac3e3020dd0db63a848dcaba6ceb2603bf64de90949d5c4361f848e44b
 	
 	# https://developer.android.com/studio/index.html#command-tools
 	echo "Downloading Android SDK..."
-	wget -c https://dl.google.com/android/repository/${ANDROID_SDK_FILE} \
-		tools-${SDK_REVISION}.zip 
+	wget -c https://dl.google.com/android/repository/${ANDROID_SDK_FILE}
 	rm -Rf android-sdk
-	unzip tools-${SDK_REVISION}.zip -d android-sdk
+	unzip ${ANDROID_SDK_FILE} -d android-sdk
 
 	# https://developer.android.com/ndk/downloads
 	echo "Downloading Android NDK..."
-	wget -c https://dl.google.com/android/repository/${ANDROID_NDK_FILE} \
-		ndk-r${NDK_VERSION}.zip 
+	wget -c https://dl.google.com/android/repository/${ANDROID_NDK_FILE}
 	rm -Rf android-ndk-r${NDK_VERSION}
-	unzip ndk-r${TERMUX_NDK_VERSION}.zip
+	unzip ${ANDROID_NDK_FILE}
