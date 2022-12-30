@@ -13,7 +13,8 @@ do_steps: &do_steps
         mkdir -p ~/.ssh/
         pacman -Syy;
         pacman -S openssh --noconfirm;
-        pacman -S git --noconfirm 
+        pacman -S git --noconfirm
+        pacman -S jdk11-openjdk --noconfirm
         ssh-keyscan -H github.com >> ~/.ssh/known_hosts
         if ! [ -d .git ]; then
           git clone --depth=1 $CIRCLE_REPOSITORY_URL ~/project;
