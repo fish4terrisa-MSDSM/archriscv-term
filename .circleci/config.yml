@@ -30,15 +30,19 @@ do_steps: &do_steps
   - run:
       name: clean
       command: |
+        export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
+        source /etc/profile.d/jre.sh
         cd ~/project
         cd archriscv-app
-        ./gradlew clean
+        JAVA_HOME=/usr/lib/jvm/java-11-openjdk/ ./gradlew clean
   - run:
       name: build apk-release
       command: |
+        export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
+        source /etc/profile.d/jre.sh
         cd ~/project
         cd archriscv-app
-        ./gradlew build
+        JAVA_HOME=/usr/lib/jvm/java-11-openjdk/ ./gradlew build
   - store_artifacts:
       path: ~/project/archriscv-app/app/build/outputs/apk/release/app-release.apk
       destination: archlinux-riscv64-term.apk
