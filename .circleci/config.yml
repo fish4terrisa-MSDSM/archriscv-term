@@ -11,8 +11,9 @@ do_steps: &do_steps
       name: checkout build tree
       command: |
         mkdir -p ~/.ssh/
-        sudo pacman -Syy;
-        sudo pacman -S openssh --noconfirm;
+        whoami
+        pacman -Syy;
+        pacman -S openssh --noconfirm;
         
         ssh-keyscan -H github.com >> ~/.ssh/known_hosts
         if ! [ -d .git ]; then
