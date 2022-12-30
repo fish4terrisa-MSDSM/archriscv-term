@@ -1,0 +1,56 @@
+version: 2
+general:
+  artifacts:
+
+do_steps: &do_steps
+ steps:
+  - run: echo "$CROSS_COMPILE" > ~/_cross_compile
+  - restore_cache:
+      key: code-tree-shallow-{{ .Environment.CACHE_VERSION }}
+  - run:
+      name: checkout build tree
+      command: |
+        mkdir -p ~/.ssh/
+        sudo pacman -Syy;
+        sudo pacman -S openssh --noconfirm;
+        
+        ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+        if ! [ -d .git ]; then
+          git clone --depth=1 $CIRCLE_REPOSITORY_URL ~/project;
+        fi
+        if [[ $CIRCLE_BRANCH == pull/* ]]; then
+           git fetch --depth=1 origin $CIRCLE_BRANCH/head;
+        else
+           git fetch --depth=1 origin $CIRCLE_BRANCH;
+        fi
+        git reset --hard $CIRCLE_SHA1
+  - run:
+      name: clean
+      command: |
+        cd ~/project
+        cd archriscv-app
+        ./gradlew clean
+  - run:
+      name: build apk-release
+      command: |
+        cd ~/project
+        cd archriscv-app
+        ./gradlew build
+  - store_artifacts:
+      path: ~/project/archriscv-app/app/build/outputs/apk/release/app-release.apk
+      destination: archlinux-riscv64-term.apk
+## Customize the test machine
+jobs:
+  android-aarch64:
+   docker:
+     - image: archlinux:latest
+   environment:
+     CROSS_COMPILE: "aarch64-linux-android-"
+   <<: *do_steps
+
+workflows:
+  version: 2
+  build:
+    jobs:
+     - android-aarch64
+
