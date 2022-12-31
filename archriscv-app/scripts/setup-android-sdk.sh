@@ -17,10 +17,12 @@ ANDROID_NDK_SHA256=403ac3e3020dd0db63a848dcaba6ceb2603bf64de90949d5c4361f848e44b
 	echo "Downloading Android SDK..."
 	wget -c https://dl.google.com/android/repository/${ANDROID_SDK_FILE}
 	rm -Rf android-sdk
-	unzip ${ANDROID_SDK_FILE} -d android-sdk
+	unzip -q ${ANDROID_SDK_FILE} -d android-sdk
 
 	# https://developer.android.com/ndk/downloads
 	echo "Downloading Android NDK..."
 	wget -c https://dl.google.com/android/repository/${ANDROID_NDK_FILE}
 	rm -Rf android-ndk-r${NDK_VERSION}
-	unzip ${ANDROID_NDK_FILE}
+	unzip -q ${ANDROID_NDK_FILE}
+	yes | /root/lib/android-sdk/android-sdk/tools/bin/sdkmanager --sdk_root="/root/lib/android-sdk" --licenses
+	yes | /root/lib/android-sdk/android-sdk/tools/bin/sdkmanager --sdk_root="/root/lib/android-sdk" "platform-tools" "build-tools;32.0.0" "platforms;android-30"
