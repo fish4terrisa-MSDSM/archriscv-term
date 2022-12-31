@@ -5,7 +5,7 @@ import android.view.InputDevice;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.inputmethod.InputMethodManager;
-
+import fish4terrisa.archlinux.riscv64.R;
 import fish4terrisa.archlinux.riscv64.terminal.KeyHandler;
 import fish4terrisa.archlinux.riscv64.terminal.TerminalEmulator;
 import fish4terrisa.archlinux.riscv64.terminal.TerminalSession;

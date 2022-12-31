@@ -3,7 +3,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.view.WindowManager;
-
+import fish4terrisa.archlinux.riscv64.R;
 public class TermuxFloatPrefs {
 
     private static final String PREF_X = "window_x";

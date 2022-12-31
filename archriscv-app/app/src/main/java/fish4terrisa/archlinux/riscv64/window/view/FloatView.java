@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-
+import fish4terrisa.archlinux.riscv64.R;
 /**
  * Created by cool on 2016/8/30.
  */

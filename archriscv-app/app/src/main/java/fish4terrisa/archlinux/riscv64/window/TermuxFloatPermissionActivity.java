@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
-
+import fish4terrisa.archlinux.riscv64.R;
 @TargetApi(23)
 public class TermuxFloatPermissionActivity extends Activity {
 

@@ -333,7 +333,7 @@ public class TermuxFloatService extends Service {
         final String ldEnv = "LD_LIBRARY_PATH=" + "/data/data/fish4terrisa.archlinux.riscv64/files/environment/lib";
         final String langEnv = "LANG=en_US.UTF-8";
         final String pathEnv = "PATH=" + TermuxFloatService.PREFIX_PATH + "/bin:" + TermuxFloatService.PREFIX_PATH + "/bin/applets";
-        String[] env = new String[]{termEnv, homeEnv, prefixEnv, ps1Env, ldEnv, langEnv, pathEnv, androidRootEnv, androidDataEnv, externalStorageEnv};
+        String[] env = new String[]{termEnv, homeEnv, prefixEnv, ldEnv, langEnv, pathEnv, androidRootEnv, androidDataEnv, externalStorageEnv};
 
         String executablePath = null;
         String[] args;
@@ -341,7 +341,7 @@ public class TermuxFloatService extends Service {
 	String execPath = appContext.getApplicationInfo().nativeLibraryDir;
         String processArgs[] = {execPath + "/libbash.so", execPath + "/libentrypoint.so", "2"};
 
-        return new TerminalSession(execPath + "/libbash.so", processArgs , env, new TerminalSession.SessionChangedCallback() {
+        return new TerminalSession(execPath + "/libbash.so" , execPath + "/libbash.so", processArgs , env, new TerminalSession.SessionChangedCallback() {
             @Override
             public void onTitleChanged(TerminalSession changedSession) {
                 // Ignore for now.
