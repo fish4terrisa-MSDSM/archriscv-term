@@ -10,8 +10,8 @@ NDK_VERSION=25b
 ANDROID_NDK_FILE=android-ndk-r${NDK_VERSION}-linux.zip
 ANDROID_NDK_SHA256=403ac3e3020dd0db63a848dcaba6ceb2603bf64de90949d5c4361f848e44b005
 
-	mkdir -p "~/lib"
-	cd "~/lib/.."
+	mkdir -p "/root/lib"
+	cd "/root/lib/"
 	
 	# https://developer.android.com/studio/index.html#command-tools
 	echo "Downloading Android SDK..."
