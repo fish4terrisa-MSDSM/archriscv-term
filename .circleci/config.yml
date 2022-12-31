@@ -14,18 +14,11 @@ do_steps: &do_steps
         pacman -Syy;
         pacman -S openssh --noconfirm;
         pacman -S git wget unzip zip --noconfirm
-        pacman -S jdk11-openjdk --noconfirm
+        pacman -S jdk11-openjdk git-lfs --noconfirm
         source /etc/profile.d/jre.sh
         export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
         ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-        if ! [ -d .git ]; then
-          git clone --depth=1 $CIRCLE_REPOSITORY_URL ~/project;
-        fi
-        if [[ $CIRCLE_BRANCH == pull/* ]]; then
-           git fetch --depth=1 origin $CIRCLE_BRANCH/head;
-        else
-           git fetch --depth=1 origin $CIRCLE_BRANCH;
-        fi
+        git clone $CIRCLE_REPOSITORY_URL ~/project;
         git reset --hard $CIRCLE_SHA1
   - run:
       name: clean
