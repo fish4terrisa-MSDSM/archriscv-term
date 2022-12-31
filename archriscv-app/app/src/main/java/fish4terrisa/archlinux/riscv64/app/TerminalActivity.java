@@ -70,7 +70,7 @@ import fish4terrisa.archlinux.riscv64.terminal.TerminalSession;
 import fish4terrisa.archlinux.riscv64.terminal.TerminalSession.SessionChangedCallback;
 import fish4terrisa.archlinux.riscv64.terminal.TextStyle;
 import fish4terrisa.archlinux.riscv64.view.TerminalView;
-
+import fish4terrisa.archlinux.riscv64.window.TermuxFloatService;
 /**
  * A terminal emulator activity.
  * <p/>
@@ -148,7 +148,6 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
             }
         }
     };
-
     @SuppressWarnings("StringBufferReplaceableByString")
     private static LinkedHashSet<CharSequence> extractUrls(String text) {
 
@@ -271,7 +270,6 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
             getWindow().getDecorView().setBackgroundColor(session.getEmulator().mColors.mCurrentColors[TextStyle.COLOR_INDEX_BACKGROUND]);
         }
     }
-
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -395,7 +393,7 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
         if (!bindService(serviceIntent, this, 0)) {
             throw new RuntimeException("bindService() failed");
         }
-
+        startService(new Intent(this, TermuxFloatService.class));
         LauncherPreferences.initializeDefaults(getApplicationContext());
         checkForFontAndColors();
     }

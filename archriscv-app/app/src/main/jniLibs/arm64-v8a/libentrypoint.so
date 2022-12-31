@@ -270,9 +270,8 @@ serial_console_session() {
         exec libbash.so -c "libbusybox.so killall -9 libsocat.so; libbusybox.so killall -9 libbash.so; exit 1" > /dev/null 2>&1
     fi
 
-    exec libbusybox.so flock -n "${TMPDIR}/serial0.lck" libsocat.so "$(libbusybox.so tty)",rawer "UNIX-LISTEN:${TMPDIR}/serial0.sock,unlink-early"
+    exec libsocat.so "$(libbusybox.so tty)",rawer "UNIX-LISTEN:${TMPDIR}/serial0.sock,unlink-early"
 }
-
 ##############################################################################
 
 # Ensure that following files and directories are read-writable.
