@@ -63,10 +63,6 @@
             </intent-filter>
         </activity>
 	<activity
-            android:theme="@android:style/Theme.Material"
-            android:name=".app.TermuxFloatPermissionActivity" />
-	
-	<activity
             android:name=".app.LauncherPreferences"
             android:noHistory="true"
             android:exported="false"
