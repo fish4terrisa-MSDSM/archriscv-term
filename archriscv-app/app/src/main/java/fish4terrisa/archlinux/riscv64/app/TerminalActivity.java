@@ -595,7 +595,6 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
                                 case 0:
                                     // Default QEMU session.
                                         addNewSession(String.format(Locale.US, "/dev/ttyS%d", 0), TerminalService.SESSION_TYPE_SERIAL, 0);
-                                    }
                                     addNewSession("QEMU Monitor", TerminalService.SESSION_TYPE_QEMU, -1);
                                     switchToSession(mTermService.getSessions().get(0));
                                     break;
