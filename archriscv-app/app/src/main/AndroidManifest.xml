@@ -83,7 +83,6 @@
             android:exported="false"
             android:noHistory="true"
             android:theme="@style/StylingDialogTheme" />
-        <service android:name=".app.TermuxFloatService" android:exported="false"/>
         <service
             android:name=".app.TerminalService"
             android:exported="false" />
