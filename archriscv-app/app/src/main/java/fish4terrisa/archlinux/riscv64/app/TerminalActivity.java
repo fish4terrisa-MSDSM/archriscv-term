@@ -390,7 +390,6 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
         Intent serviceIntent = new Intent(this, TerminalService.class);
         // Start the service and make it run regardless of who is bound to it:
         startService(serviceIntent);
-        startService(new Intent(this, TermuxFloatService.class));
 	if (!bindService(serviceIntent, this, 0)) {
             throw new RuntimeException("bindService() failed");
         }
@@ -414,6 +413,7 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
         // The current terminal session may have changed while being away, force
         // a refresh of the displayed terminal:
         mTerminalView.onScreenUpdated();
+    	startService(new Intent(this, TermuxFloatService.class));
     }
 
     @Override
@@ -588,8 +588,7 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
                             switch (which) {
                                 case 0:
                                     // Default QEMU session.
-                                    for (int i=0; i<4; i++) {
-                                        addNewSession(String.format(Locale.US, "/dev/ttyS%d", i), TerminalService.SESSION_TYPE_SERIAL, i);
+                                        addNewSession(String.format(Locale.US, "/dev/ttyS%d", 0), TerminalService.SESSION_TYPE_SERIAL, 0);
                                     }
                                     addNewSession("QEMU Monitor", TerminalService.SESSION_TYPE_QEMU, -1);
                                     switchToSession(mTermService.getSessions().get(0));
