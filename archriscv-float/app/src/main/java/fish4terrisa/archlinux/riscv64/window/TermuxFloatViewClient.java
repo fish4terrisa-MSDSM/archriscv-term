@@ -10,7 +10,7 @@ import android.view.inputmethod.InputMethodManager;
 import fish4terrisa.archlinux.riscv64.terminal.KeyHandler;
 import fish4terrisa.archlinux.riscv64.terminal.TerminalEmulator;
 import fish4terrisa.archlinux.riscv64.terminal.TerminalSession;
-import fish4terrisa.archlinux.riscv64.window.view.TerminalViewClient;
+import fish4terrisa.archlinux.riscv64.view.TerminalViewClient;
 
 public class TermuxFloatViewClient implements TerminalViewClient {
 

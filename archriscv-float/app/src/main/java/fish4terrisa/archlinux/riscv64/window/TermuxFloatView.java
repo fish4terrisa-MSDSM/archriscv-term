@@ -18,7 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import fish4terrisa.archlinux.riscv64.terminal.EmulatorDebug;
-import fish4terrisa.archlinux.riscv64.window.view.TerminalView;
+import fish4terrisa.archlinux.riscv64.view.TerminalView;
 
 import java.io.File;
 

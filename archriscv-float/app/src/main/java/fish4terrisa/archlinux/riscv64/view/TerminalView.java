@@ -28,7 +28,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.Scroller;
 
-import fish4terrisa.archlinux.riscv64.R;
+import fish4terrisa.archlinux.riscv64.window.R;
 import fish4terrisa.archlinux.riscv64.terminal.EmulatorDebug;
 import fish4terrisa.archlinux.riscv64.terminal.KeyHandler;
 import fish4terrisa.archlinux.riscv64.terminal.TerminalBuffer;
