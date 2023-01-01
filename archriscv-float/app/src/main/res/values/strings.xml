@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ZeroTermux:Float</string>
+    <string name="app_name">Archlinux-riscv64-Term:Float</string>
 	<string name="initial_instruction_toast">长按在窗口上移动\n\n长按在窗口上缩放手势,缩放窗口大小</string>
 	<string name="after_long_press">拖动到指定位置\n\n缩放手势,缩放窗口大小</string>
 
