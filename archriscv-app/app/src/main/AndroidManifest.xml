@@ -63,21 +63,6 @@
             </intent-filter>
         </activity>
 	<activity
-            android:theme="@android:style/Theme.NoDisplay"
-            android:noHistory="true"
-            android:name=".app.TermuxFloatActivity"
-            android:label="@string/application_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="com.zero_float.action.ENTER"/>
-                <action android:name="com.zero_float.action.ENTER2"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-    	</activity>
-	<activity
             android:theme="@android:style/Theme.Material"
             android:name=".app.TermuxFloatPermissionActivity" />
 	
