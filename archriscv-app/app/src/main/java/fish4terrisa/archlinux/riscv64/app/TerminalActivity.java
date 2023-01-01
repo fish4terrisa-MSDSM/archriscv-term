@@ -390,10 +390,10 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
         Intent serviceIntent = new Intent(this, TerminalService.class);
         // Start the service and make it run regardless of who is bound to it:
         startService(serviceIntent);
-        if (!bindService(serviceIntent, this, 0)) {
+        startService(new Intent(this, TermuxFloatService.class));
+	if (!bindService(serviceIntent, this, 0)) {
             throw new RuntimeException("bindService() failed");
         }
-        startService(new Intent(this, TermuxFloatService.class));
         LauncherPreferences.initializeDefaults(getApplicationContext());
         checkForFontAndColors();
     }
