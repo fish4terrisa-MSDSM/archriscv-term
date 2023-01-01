@@ -27,7 +27,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.TextView;
 import android.widget.Toast;
 import fish4terrisa.archlinux.riscv64.window.R;
-import fish4terrisa.archlinux.riscv64.window.terminal.TerminalSession;
+import fish4terrisa.archlinux.riscv64.terminal.TerminalSession;
 import fish4terrisa.archlinux.riscv64.window.view.FloatView;
 
 import java.io.File;
