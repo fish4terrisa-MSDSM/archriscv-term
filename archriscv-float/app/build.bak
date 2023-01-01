@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.termux.window"
+        minSdkVersion 24
+        targetSdkVersion 28
+        versionCode 14
+        versionName "0.14"
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'phone1'
+            keyPassword '654321'
+            storeFile file('E:/BaiduNetdiskDownload/termux-app-master/签名文件/phone.jks')
+            storePassword '123456'
+        }
+        debug {
+            keyAlias 'phone1'
+            keyPassword '654321'
+            storeFile file('E:/BaiduNetdiskDownload/termux-app-master/签名文件/phone.jks')
+            storePassword '123456'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            signingConfig signingConfigs.debug
+            zipAlignEnabled true
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'com.termux:terminal-view:0.106'
+
+    testImplementation 'junit:junit:4.13'
+}
+
+task versionName {
+  doLast {
+    print android.defaultConfig.versionName
+  }
+}

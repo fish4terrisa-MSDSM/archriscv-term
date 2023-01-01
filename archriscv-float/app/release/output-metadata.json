@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "fish4terrisa.archlinux.riscv64.window",
+  "variantName": "processReleaseResources",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "versionCode": 14,
+      "versionName": "0.14",
+      "outputFile": "app-release.apk"
+    }
+  ]
+}
