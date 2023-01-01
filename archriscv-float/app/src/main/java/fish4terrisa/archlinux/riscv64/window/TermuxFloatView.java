@@ -1,4 +1,4 @@
-package com.termux.window;
+package fish4terrisa.archlinux.riscv64.window;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -17,8 +17,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.termux.terminal.EmulatorDebug;
-import com.termux.view.TerminalView;
+import fish4terrisa.archlinux.riscv64.terminal.EmulatorDebug;
+import fish4terrisa.archlinux.riscv64.view.TerminalView;
 
 import java.io.File;
 
@@ -105,7 +105,7 @@ public class TermuxFloatView extends LinearLayout {
 
     void checkForFont() {
         try {
-            @SuppressLint("SdCardPath") File fontFile = new File("/data/data/com.termux/files/home/.termux/font.ttf");
+            @SuppressLint("SdCardPath") File fontFile = new File("/data/data/fish4terrisa.archlinux.riscv64/files/fonts/Hack.ttf");
             final Typeface newTypeface = (fontFile.exists() && fontFile.length() > 0) ? Typeface.createFromFile(fontFile) : Typeface.MONOSPACE;
             mTerminalView.setTypeface(newTypeface);
         } catch (Exception e) {

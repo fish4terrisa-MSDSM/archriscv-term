@@ -1,4 +1,4 @@
-package com.termux.window.view;
+package fish4terrisa.archlinux.riscv64.window.view;
 
 import android.content.Context;
 import android.graphics.PixelFormat;

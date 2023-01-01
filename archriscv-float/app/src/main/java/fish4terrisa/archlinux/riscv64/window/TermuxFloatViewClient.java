@@ -1,4 +1,4 @@
-package com.termux.window;
+package fish4terrisa.archlinux.riscv64.window;
 
 import android.content.Context;
 import android.media.AudioManager;
@@ -7,10 +7,10 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.inputmethod.InputMethodManager;
 
-import com.termux.terminal.KeyHandler;
-import com.termux.terminal.TerminalEmulator;
-import com.termux.terminal.TerminalSession;
-import com.termux.view.TerminalViewClient;
+import fish4terrisa.archlinux.riscv64.terminal.KeyHandler;
+import fish4terrisa.archlinux.riscv64.terminal.TerminalEmulator;
+import fish4terrisa.archlinux.riscv64.terminal.TerminalSession;
+import fish4terrisa.archlinux.riscv64.view.TerminalViewClient;
 
 public class TermuxFloatViewClient implements TerminalViewClient {
 

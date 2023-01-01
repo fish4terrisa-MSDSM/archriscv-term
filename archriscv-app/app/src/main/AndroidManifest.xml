@@ -76,9 +76,6 @@
             android:parentActivityName=".app.TerminalActivity"
             android:resizeableActivity="true"
             android:label="@string/application_name" />
-	<activity
-            android:theme="@android:style/Theme.Material"
-            android:name=".window.TermuxFloatPermissionActivity" />
         <activity
             android:name=".app.TerminalStyleActivity"
             android:exported="false"
