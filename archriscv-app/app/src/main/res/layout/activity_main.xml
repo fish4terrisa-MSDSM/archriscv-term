@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<fish4terrisa.archlinux.riscv64.window.TermuxFloatView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/window_layout"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@drawable/shape_line_161823"
-    android:padding="1px" >
-
-</fish4terrisa.archlinux.riscv64.window.TermuxFloatView>

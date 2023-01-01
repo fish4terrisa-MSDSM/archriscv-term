@@ -87,7 +87,6 @@
         <service
             android:name=".app.TerminalService"
             android:exported="false" />
-	<service android:name=".window.TermuxFloatService" android:exported="false"/>
         <meta-data android:name="com.sec.android.support.multiwindow" android:value="true" />
     </application>
 </manifest>

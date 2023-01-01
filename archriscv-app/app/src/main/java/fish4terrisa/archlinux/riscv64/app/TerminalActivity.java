@@ -70,7 +70,6 @@ import fish4terrisa.archlinux.riscv64.terminal.TerminalSession;
 import fish4terrisa.archlinux.riscv64.terminal.TerminalSession.SessionChangedCallback;
 import fish4terrisa.archlinux.riscv64.terminal.TextStyle;
 import fish4terrisa.archlinux.riscv64.view.TerminalView;
-import fish4terrisa.archlinux.riscv64.window.TermuxFloatService;
 /**
  * A terminal emulator activity.
  * <p/>
@@ -273,7 +272,6 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-	startService(new Intent(this, TermuxFloatService.class));
         mSettings = new TerminalPreferences(this);
 
         setContentView(R.layout.drawer_layout);
