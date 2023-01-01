@@ -98,7 +98,20 @@
     <string name="pref_dialog_fwd_invalid_rule">Rule: %s\n\nSyntax error.\n\nRule should be defined in the following format:\n\n(tcp|udp):{1024–65535}:{1–65535}\n\nMultiple rules should be separated by commas.</string>
     <string name="pref_dialog_fwd_invalid_external_port_body">Rule: %s\n\nYou have specified an invalid external port value.\n\nAllowed range for external port is 1024–65535.</string>
     <string name="pref_dialog_fwd_invalid_internal_port_body">Rule: %s\n\nYou have specified an invalid internal port value.\n\nAllowed range for internal port is 1–65535.</string>
+    <string name="app_name">ZeroTermux:Float</string>
+        <string name="initial_instruction_toast">长按在窗口上移动\n\n长按在窗口上缩放手势,缩放窗口大小</string>
+        <string name="after_long_press">拖动到指定位置\n\n缩放手势,缩放窗口大小</string>
 
+    <string name="draw_overlay_permission_explanation">这个应用程序需要权限来绘制覆盖。</string>
+    <string name="grant_permission">授予许可</string>
+
+        <string name="notification_title">ZeroTermux:Float</string>
+        <string name="notification_message_visible">触摸隐藏窗口。</string>
+    <string name="notification_message_hidden">触摸隐藏窗口。</string>
+
+    <string name="paste_text">粘贴</string>
+    <string name="copy_text">复制</string>
+    <string name="text_selection_more">更多…</string>
     <!-- Preference keys -->
     <string name="qemu_ram_key">qemu_ram</string>
     <string name="qemu_hdd1_path_key">qemu_hdd1_path</string>
