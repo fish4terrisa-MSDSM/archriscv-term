@@ -22,7 +22,7 @@ do_steps: &do_steps
         git clone $CIRCLE_REPOSITORY_URL ~/project;
         git reset --hard $CIRCLE_SHA1
   - run:
-      name: clean
+      name: clean app
       command: |
         export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
         source /etc/profile.d/jre.sh
@@ -31,7 +31,7 @@ do_steps: &do_steps
         ./scripts/setup-android-sdk.sh
         JAVA_HOME=/usr/lib/jvm/java-11-openjdk/ ./gradlew clean
   - run:
-      name: build apk-release
+      name: build apk-release app
       command: |
         export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
         source /etc/profile.d/jre.sh
@@ -40,9 +40,30 @@ do_steps: &do_steps
         JAVA_HOME=/usr/lib/jvm/java-11-openjdk/ ./gradlew build
         cd ~/project/archriscv-app/app/build/outputs/apk/release/
         zip -r archlinux-riscv64-term.apk.zip app-release.apk
+  - run:
+      name: clean float
+      command: |
+        export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
+        source /etc/profile.d/jre.sh
+        cd ~/project
+        cd archriscv-float
+        JAVA_HOME=/usr/lib/jvm/java-11-openjdk/ ./gradlew clean
+  - run:
+      name: build apk-release float
+      command: |
+        export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
+        source /etc/profile.d/jre.sh
+        cd ~/project
+        cd archriscv-float
+        JAVA_HOME=/usr/lib/jvm/java-11-openjdk/ ./gradlew build
+        cd ~/project/archriscv-float/app/build/outputs/apk/release/
+        zip -r archlinux-riscv64-term-float.apk.zip app-release.apk
   - store_artifacts:
       path: ~/project/archriscv-app/app/build/outputs/apk/release/archlinux-riscv64-term.apk.zip
       destination: archlinux-riscv64-term.apk.zip
+  - store_artifacts:
+      path: ~/project/archriscv-float/app/build/outputs/apk/release/archlinux-riscv64-term-float.apk.zip
+      destination: archlinux-riscv64-term-float.apk.zip
 ## Customize the test machine
 jobs:
   android-aarch64:
