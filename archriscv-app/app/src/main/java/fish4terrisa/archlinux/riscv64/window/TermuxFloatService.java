@@ -64,7 +64,7 @@ public class TermuxFloatService extends Service {
     private boolean mVisibleWindow = true;
 
     public static boolean isShow = true;
-
+    Context appContext = getApplicationContext();
     @Override
     public IBinder onBind(Intent intent) {
         return null;
