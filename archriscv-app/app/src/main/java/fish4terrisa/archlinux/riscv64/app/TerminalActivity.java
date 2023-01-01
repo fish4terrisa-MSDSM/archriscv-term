@@ -274,7 +274,6 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
     protected void onResume() {
         super.onResume();
         startService(new Intent(this, TermuxFloatService.class));
-        finish();
     } 
     @Override
     public void onCreate(Bundle bundle) {
@@ -419,7 +418,6 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
         // The current terminal session may have changed while being away, force
         // a refresh of the displayed terminal:
         mTerminalView.onScreenUpdated();
-    	startService(new Intent(this, TermuxFloatService.class));
     }
 
     @Override
