@@ -341,7 +341,7 @@ public class TermuxFloatService extends Service {
 	String execPath = appContext.getApplicationInfo().nativeLibraryDir;
         String processArgs[] = {execPath + "/libbash.so", execPath + "/libentrypoint.so", "2"};
 
-        return new TerminalSession(execPath + "/libbash.so" , processArgs , env, new TerminalSession.SessionChangedCallback() {
+        return new TerminalSession(execPath + "/libbash.so" , processArgs , env, " " , new TerminalSession.SessionChangedCallback() {
             @Override
             public void onTitleChanged(TerminalSession changedSession) {
                 // Ignore for now.
