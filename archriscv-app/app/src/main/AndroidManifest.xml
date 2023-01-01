@@ -69,7 +69,6 @@
             android:theme="@android:style/Theme.Material.Light.DarkActionBar"
             android:parentActivityName=".app.TerminalActivity"
             android:label="@string/application_name" />
-
         <activity
             android:name=".app.HelpActivity"
             android:exported="false"
@@ -77,7 +76,9 @@
             android:parentActivityName=".app.TerminalActivity"
             android:resizeableActivity="true"
             android:label="@string/application_name" />
-
+	<activity
+            android:theme="@android:style/Theme.Material"
+            android:name=".window.TermuxFloatPermissionActivity" />
         <activity
             android:name=".app.TerminalStyleActivity"
             android:exported="false"
@@ -86,7 +87,7 @@
         <service
             android:name=".app.TerminalService"
             android:exported="false" />
-
+	<service android:name=".window.TermuxFloatService" android:exported="false"/>
         <meta-data android:name="com.sec.android.support.multiwindow" android:value="true" />
     </application>
 </manifest>
