@@ -271,14 +271,9 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
         }
     }
     @Override
-    protected void onResume() {
-        super.onResume();
-        startService(new Intent(this, TermuxFloatService.class));
-    } 
-    @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-
+	startService(new Intent(this, TermuxFloatService.class));
         mSettings = new TerminalPreferences(this);
 
         setContentView(R.layout.drawer_layout);
