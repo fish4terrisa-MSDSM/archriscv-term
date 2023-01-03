@@ -34,8 +34,9 @@ do_steps: &do_steps
         export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
         source /etc/profile.d/jre.sh
         cd ~/project
-        cd archriscv-app
-        ./scripts/setup-android-sdk.sh
+        cp ~/project/archriscv-app/local.properties.circleci ~/project/archriscv-app/local.properties
+        ~/project/scripts/setup-android-sdk.sh
+        cd ~/project/archriscv-app
         JAVA_HOME=/usr/lib/jvm/java-11-openjdk/ ./gradlew clean
   - run:
       name: build apk-release app
