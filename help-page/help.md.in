@@ -1,7 +1,7 @@
 % Arch Linux riscv64 on Android
 
 This is an application emulating a headless riscv64 machine which runs an
-[Arch Linux](https://archlinux.org)operating system.
+[Arch Linux](https://archlinux.org) operating system.
 
 Arch Linux riscv64 Term is based on sources of [Termux](https://github.com/termux/termux-app)
 which is a terminal emulator for Android. Core of this application is the
