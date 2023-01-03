@@ -44,6 +44,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.app.DownloadManager;
+import android.database.Cursor;
+import android.os.Environment;
+import android.widget.ProgressBar;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -94,7 +98,15 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
     private static final int CONTEXTMENU_TOGGLE_IGNORE_BELL = 7;
 
     private static final int REQUESTCODE_PERMISSION_STORAGE = 1234;
+    private DownloadManager downloadManager;
+    private long downloadId;
+    private DownloadManager.Query query;
 
+    private File file;
+    private String filePath = "/sdcard/archriscv.qcow2";
+
+    private ProgressBar progressBar;
+    private TextView progressText;
 
     private final int MAX_FONTSIZE = 256;
     private int MIN_FONTSIZE;
@@ -273,7 +285,8 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         mSettings = new TerminalPreferences(this);
-
+	progressBar = findViewById(R.id.progress_bar);
+        progressText = findViewById(R.id.progress_text);
         setContentView(R.layout.drawer_layout);
         mTerminalView = findViewById(R.id.terminal_view);
         mTerminalView.setOnKeyListener(new InputDispatcher(this));
@@ -300,7 +313,10 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
 
         final ViewPager viewPager = findViewById(R.id.viewpager);
         if (mSettings.isShowExtraKeys()) viewPager.setVisibility(View.VISIBLE);
-
+	file = new File(filePath);
+        if (!file.exists()) {
+            startDownload();
+        }
         viewPager.setAdapter(new PagerAdapter() {
             @Override
             public int getCount() {
@@ -394,7 +410,54 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
         LauncherPreferences.initializeDefaults(getApplicationContext());
         checkForFontAndColors();
     }
+    private void startDownload() {
+        downloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+        Uri downloadUri = Uri.parse("https://archive.org/download/archriscv-demo-qcow2_202301/archriscv-demo.qcow2");
+        DownloadManager.Request request = new DownloadManager.Request(downloadUri);
+        request.setDestinationUri(Uri.fromFile(file));
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
+        downloadId = downloadManager.enqueue(request);
 
+        query = new DownloadManager.Query();
+        query.setFilterById(downloadId);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                boolean downloading = true;
+                int retries = 0;
+                while (downloading) {
+                    Cursor cursor = downloadManager.query(query);
+                    cursor.moveToFirst();
+                    int bytesDownloaded = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
+                    int bytesTotal = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
+
+                    if (cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS)) == DownloadManager.STATUS_SUCCESSFUL) {
+                        downloading = false;
+                    } else if (cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS)) == DownloadManager.STATUS_FAILED) {
+                        if (retries < 10) {
+                            downloadId = downloadManager.restartDownload();
+                            retries++;
+                        } else {
+                            Toast.makeText(MainActivity.this, "网络不可达", Toast.LENGTH_SHORT).show();
+                            downloading = false;
+                        }
+                    }
+
+                    final int progress = (int) ((bytesDownloaded * 100l) / bytesTotal);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            progressBar.setProgress(progress);
+                            progressText.setText(progress + "%");
+                        }
+                    });
+
+                    cursor.close();
+                }
+            }
+        }).start();
+    }
     @Override
     public void onStart() {
         super.onStart();
