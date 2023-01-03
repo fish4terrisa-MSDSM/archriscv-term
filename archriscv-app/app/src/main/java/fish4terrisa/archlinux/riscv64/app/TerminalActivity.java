@@ -404,10 +404,6 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
             throw new RuntimeException("bindService() failed");
         }
         LauncherPreferences.initializeDefaults(getApplicationContext());
-	file = new File(filePath);
-	if (!file.exists()) {
-	    startDownload();
-        }
 	checkForFontAndColors();
     }
     private void startDownload() {
