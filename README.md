@@ -1,5 +1,5 @@
 # Archlinux riscv64 Term
-
+ - [![CircleCI](https://dl.circleci.com/status-badge/img/gh/fish4terrisa-MSDSM/archriscv-term/tree/flyingfish.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/fish4terrisa-MSDSM/archriscv-term/tree/flyingfish)
 Archlinux riscv64 Term is a terminal and Linux environment application for Android.
 A key difference of other terminal applications is that it uses
 [Arch Linux](https://archlinux.org/) running inside the headless
@@ -26,7 +26,6 @@ You can get the image using [CoelacanthusHex/archriscv-scriptlet](https://github
  - At least 500 MB of space on the internal storage.
  - Internet (if you want to install/update packages).
 ## Building
- - [![CircleCI](https://dl.circleci.com/status-badge/img/gh/fish4terrisa-MSDSM/archriscv-term/tree/flyingfish.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/fish4terrisa-MSDSM/archriscv-term/tree/flyingfish)
  - Just like normal gradle project ,run `cd archriscv-app && gradle build`
  - [![CircleCI](https://dl.circleci.com/insights-snapshot/gh/fish4terrisa-MSDSM/archriscv-term/flyingfish/build/badge.svg?window=30d)](https://app.circleci.com/insights/github/fish4terrisa-MSDSM/archriscv-term/workflows/build/overview?branch=flyingfish&reporting-window=last-30-days&insights-snapshot=true)
 ## Credits
