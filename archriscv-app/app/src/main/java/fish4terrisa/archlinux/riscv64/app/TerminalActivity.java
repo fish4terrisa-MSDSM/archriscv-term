@@ -96,7 +96,7 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
     private static final int CONTEXTMENU_RESET_TERMINAL_ID = 5;
     private static final int CONTEXTMENU_TOGGLE_BACK_IS_ESCAPE = 6;
     private static final int CONTEXTMENU_TOGGLE_IGNORE_BELL = 7;
-
+    private int retries = 0;
     private static final int REQUESTCODE_PERMISSION_STORAGE = 1234;
     private DownloadManager downloadManager;
     private long downloadId;
@@ -425,7 +425,6 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
             @Override
             public void run() {
                 boolean downloading = true;
-                int retries = 0;
                 while (downloading) {
                     Cursor cursor = downloadManager.query(query);
                     cursor.moveToFirst();
@@ -436,10 +435,10 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
                         downloading = false;
                     } else if (cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS)) == DownloadManager.STATUS_FAILED) {
                         if (retries < 10) {
-                            downloadId = downloadManager.restartDownload();
+                            downloadId = run();
                             retries++;
                         } else {
-                            Toast.makeText(MainActivity.this, "网络不可达", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(TerminalActivity.this, "网络不可达", Toast.LENGTH_SHORT).show();
                             downloading = false;
                         }
                     }
