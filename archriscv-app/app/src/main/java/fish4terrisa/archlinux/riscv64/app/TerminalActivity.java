@@ -585,7 +585,11 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
                             switch (which) {
                                 case 0:
                                     // Default QEMU session.
-                                        addNewSession(String.format(Locale.US, "/dev/ttyS%d", 0), TerminalService.SESSION_TYPE_SERIAL, 0);
+                                    addNewSession(String.format(Locale.US, "BootLine%d", 0), TerminalService.SESSION_TYPE_SERIAL, 0);
+				    addNewSession(String.format(Locale.US, "/dev/ttyS%d", 0), TerminalService.SESSION_TYPE_SERIAL, 1);
+				    addNewSession(String.format(Locale.US, "/dev/ttyS%d", 1), TerminalService.SESSION_TYPE_SERIAL, 2);
+				    addNewSession(String.format(Locale.US, "/dev/ttyS%d", 2), TerminalService.SESSION_TYPE_SERIAL, 3);
+				    addNewSession(String.format(Locale.US, "/dev/ttyS%d", 3), TerminalService.SESSION_TYPE_SERIAL, 4);
                                     addNewSession("QEMU Monitor", TerminalService.SESSION_TYPE_QEMU, -1);
                                     switchToSession(mTermService.getSessions().get(0));
                                     break;

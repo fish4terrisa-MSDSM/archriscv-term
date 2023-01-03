@@ -27,11 +27,6 @@ virtualizer.
 
 ## User's Guide
 
-**Important**: this user's guide does not include information about
-"how to use shell" or "how to use Arch Linux". If you are new for
-such topics, it is recommended to read [Bash Guide for Beginners](doc/bash-guide.html)
-and [Advanced Bash-Scripting Guide](doc/bash-advanced.html).
-
  - [User interface](#user-interface)
    - [Main menu](#main-menu)
    - [Context menu](#context-menu)
@@ -180,8 +175,10 @@ Arch Linux riscv64 Term uses a fixed number of terminal sessions, each of
 them has its own purpose. You cannot add new or remove existing
 ones.
 
-The first session is serial console (ttyS0) which
-you can use to access the shell.
+The first session is bootline console (BootLine0) 
+which you can use to boot the system.
+The second-fifth session is bootline console (ttyS0-ttyS3) 
+which you can use to access the shell.
 
 **Important**: serial console do not support automatic window
 resizing. Unfortunately this issue comes from the nature of
@@ -189,9 +186,8 @@ serial console implementation and cannot be fixed. As workaround,
 it is suggested to call command '**resize**' once you changed the
 window size.
 
-The second session is a QEMU monitor. It gives you full control
-over QEMU's internal state. If you want to learn about how to
-use QEMU monitor, read the [QEMU documentation](doc/qemu-doc.html#pcsys_005fmonitor).
+The sixth session is a QEMU monitor. It gives you full control
+over QEMU's internal state.
 
 <span style="display:block;text-align:center">
   <img alt="QEMU monitor screenshot" src="img/qemu_monitor.jpg" style="width:90%;max-width:700px;">

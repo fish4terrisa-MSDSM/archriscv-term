@@ -20,7 +20,7 @@
 
 # All files that will be created by launcher or child processes should
 # have private-only access.
-umask 0077
+umask 0000
 
 # Ignore signals QUIT, INT, TERM.
 trap '' QUIT INT TERM
@@ -227,16 +227,19 @@ qemu_session() {
     set -- "${@}" "-device" "virtio-net,netdev=n0"
 
     # Disable graphical output.
-    set -- "${@}" "-nographic"
+    set -- "${@}" "-vnc" ":10"
     #set -- "${@}" "--accel" "tcg,thread=multi"
     # Monitor.
     set -- "${@}" "-chardev" "tty,id=monitor0,mux=off,path=$(libbusybox.so tty)"
     set -- "${@}" "-monitor" "chardev:monitor0"
-
-    set -- "${@}" "-chardev" "socket,id=console0,path=${TMPDIR}/serial0.sock"
-    set -- "${@}" "-serial" "chardev:console0"
+    set -- "${@}" "-chardev" "socket,id=ttyS0,path=${TMPDIR}/serial0.sock"
+    set -- "${@}" "-chardev" "socket,id=ttyS1,path=${TMPDIR}/serial1.sock"
+    set -- "${@}" "-chardev" "socket,id=ttyS2,path=${TMPDIR}/serial2.sock"
+    set -- "${@}" "-chardev" "socket,id=ttyS3,path=${TMPDIR}/serial3.sock"
+    set -- "${@}" "-chardev" "socket,id=ttyS4,path=${TMPDIR}/serial4.sock"
     set -- "${@}" "-device" "virtio-gpu"
-
+    set -- "${@}" "-serial" "chardev:ttyS0"
+    set -- "${@}" "-device" "pci-serial-4x,chardev1=ttyS1,chardev2=ttyS2,chardev3=ttyS3,chardev4=ttyS4"
     # Disable parallel port.
     set -- "${@}" "-smp" "2"
 
@@ -246,7 +249,7 @@ qemu_session() {
     msg
     echo -ne "\\a"
     unblock_terminal
-
+    libbusybox.so chmod -R 777 /data/data/fish4terrisa.archlinux.riscv64/files/environment/lib
     LD_LIBRARY_PATH=${PREFIX}/lib libqemu.so "${@}"
     qemu_ret="${?}"
 
@@ -261,22 +264,15 @@ qemu_session() {
 
 # Handle connections to serial consoles (ttyS0-3).
 serial_console_session() {
-    if [ "${#}" -lt 1 ]; then
-        msg
-        msg "[BUG] Session number is not specified."
-        msg
-        libbusybox.so stty sane
-        read -rs -p "Press enter to exit..."
-        exec libbash.so -c "libbusybox.so killall -9 libsocat.so; libbusybox.so killall -9 libbash.so; exit 1" > /dev/null 2>&1
-    fi
-
-    exec libsocat.so "$(libbusybox.so tty)",rawer "UNIX-LISTEN:${TMPDIR}/serial0.sock,unlink-early"
+    libbusybox.so chmod 777 -R /data/data/fish4terrisa.archlinux.riscv64/
+    exec libsocat.so "$(libbusybox.so tty)",rawer "UNIX-LISTEN:${TMPDIR}/serial$1.sock,unlink-early"
+    libbusybox.so chmod 777 -R ${TMPDIR}
 }
 ##############################################################################
 
 # Ensure that following files and directories are read-writable.
-libbusybox.so chmod 700 "${PREFIX}/tmp" > /dev/null 2>&1 || true
-
+libbusybox.so chmod -R 777 "${PREFIX}/tmp" > /dev/null 2>&1 || true
+libbusybox.so chmod -R 777 /data/data/fish4terrisa.archlinux.riscv64/ 
 if [ "${#}" -gt 0 ]; then
     # $1 specifies session type. For available values, see client
     # application sources.
