@@ -15,7 +15,7 @@ You should put the qcow2 image in /storage/emulated/0/archriscv.qcow2
 No other path supported.
 You can get the image using [CoelacanthusHex/archriscv-scriptlet](https://github.com/CoelacanthusHex/archriscv-scriptlet)
  - A demo image is provided:
- - [archriscv-demo.qcow2](https://archive.org/download/archriscv-demo-qcow2/archriscv-demo.qcow2)
+ - [archriscv-demo.qcow2](https://archive.org/download/archriscv-demo-qcow2_202301/archriscv-demo.qcow2)
  - username: root
  - password: toor
  - (The default shell zsh is rather slow. Strongly recommended to chsh to bash)
