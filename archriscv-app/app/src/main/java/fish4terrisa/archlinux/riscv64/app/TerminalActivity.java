@@ -654,11 +654,13 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
                                 case 1:
                                     // Sandbox QEMU session.
                                     for (int i=0; i<4; i++) {
-                                        addNewSession(String.format(Locale.US, "/dev/ttyS%d", i), TerminalService.SESSION_TYPE_SERIAL, i);
-                                    }
-                                    addNewSession("QEMU Monitor", TerminalService.SESSION_TYPE_QEMU_SANDBOX, -1);
-                                    switchToSession(mTermService.getSessions().get(0));
-                                    break;
+                                    progressBar = findViewById(R.id.progress_bar);
+        			    progressText = findViewById(R.id.progress_text);
+				    file = new File(filePath);
+        			    if (!file.exists()) {
+            				startDownload();
+        			    }
+				    break;
                                 case 2:
                                     // Settings activity.
                                     startActivity(new Intent(TerminalActivity.this, LauncherPreferences.class));
