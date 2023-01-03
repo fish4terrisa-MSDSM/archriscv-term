@@ -653,7 +653,6 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
                                     break;
                                 case 1:
                                     // Sandbox QEMU session.
-                                    for (int i=0; i<4; i++) {
                                     progressBar = findViewById(R.id.progress_bar);
         			    progressText = findViewById(R.id.progress_text);
 				    file = new File(filePath);
