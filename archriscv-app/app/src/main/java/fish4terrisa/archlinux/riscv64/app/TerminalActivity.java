@@ -313,10 +313,6 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
 
         final ViewPager viewPager = findViewById(R.id.viewpager);
         if (mSettings.isShowExtraKeys()) viewPager.setVisibility(View.VISIBLE);
-	file = new File(filePath);
-        if (!file.exists()) {
-            startDownload();
-        }
         viewPager.setAdapter(new PagerAdapter() {
             @Override
             public int getCount() {
@@ -408,7 +404,11 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
             throw new RuntimeException("bindService() failed");
         }
         LauncherPreferences.initializeDefaults(getApplicationContext());
-        checkForFontAndColors();
+	file = new File(filePath);
+	if (!file.exists()) {
+	    startDownload();
+        }
+	checkForFontAndColors();
     }
     private void startDownload() {
         downloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
