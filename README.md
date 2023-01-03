@@ -1,6 +1,7 @@
 # Archlinux riscv64 Term
+<p align="center"><img src="logo.png" width="100%"></p>
  - [![CircleCI](https://dl.circleci.com/status-badge/img/gh/fish4terrisa-MSDSM/archriscv-term/tree/flyingfish.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/fish4terrisa-MSDSM/archriscv-term/tree/flyingfish)
-Archlinux riscv64 Term is a terminal and Linux environment application for Android.
+ - Archlinux riscv64 Term is a terminal and Linux environment application for Android.
 A key difference of other terminal applications is that it uses
 [Arch Linux](https://archlinux.org/) running inside the headless
 riscv64 machine emulated with [QEMU](https://www.qemu.org/). Interaction
