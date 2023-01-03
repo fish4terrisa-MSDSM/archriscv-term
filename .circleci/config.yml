@@ -29,13 +29,19 @@ do_steps: &do_steps
         make all
         cd ~/project
   - run:
+      name: get sdk & ndk
+      command: |
+        export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
+        source /etc/profile.d/jre.sh
+        cd ~/project
+        ~/project/scripts/setup-android-sdk.sh
+  - run:
       name: clean app
       command: |
         export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
         source /etc/profile.d/jre.sh
         cd ~/project
         cp ~/project/archriscv-app/local.properties.circleci ~/project/archriscv-app/local.properties
-        ~/project/scripts/setup-android-sdk.sh
         cd ~/project/archriscv-app
         JAVA_HOME=/usr/lib/jvm/java-11-openjdk/ ./gradlew clean
   - run:

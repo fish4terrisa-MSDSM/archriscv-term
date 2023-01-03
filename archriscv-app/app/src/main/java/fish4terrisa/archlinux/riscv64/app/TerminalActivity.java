@@ -436,7 +436,7 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
                     } else if (cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS)) == DownloadManager.STATUS_FAILED) {
                         if (retries < 10) {
 			    retries++;
-                            downloadId = startDownload();
+                            startDownload();
                         } else {
                             Toast.makeText(TerminalActivity.this, "网络不可达", Toast.LENGTH_SHORT).show();
                             downloading = false;
