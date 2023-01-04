@@ -29,7 +29,7 @@ You can get the image using [CoelacanthusHex/archriscv-scriptlet](https://github
 
  - AArch64-based device.
  - Android 7.0+
- - At least 500 MB of space on the internal storage.
+ - At least 5GB of space on the internal storage.(might use more if you use the with-demo edition)
  - Internet (if you want to install/update packages).
 ## Building
  - Just like normal gradle project ,run `cd archriscv-app && gradle build`
@@ -43,5 +43,6 @@ Archlinux riscv64 Term utilizes source code of the following projects:
  - [Bash](http://www.gnu.org/software/bash/bash.html)
  - [Busybox](https://busybox.net)
  - [Socat](http://www.dest-unreach.org/socat/)
+ - [Advanced Copy](https://github.com/jarun/advcpmv)
  - [Alpine Term](https://github.com/ichit/alpine-term)
  - (I cannot find the source of alpine-term,this is a clone from @ichit)
