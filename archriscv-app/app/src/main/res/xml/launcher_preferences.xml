@@ -4,7 +4,7 @@
     <!-- NOTE: default values are set in LauncherPreferences.initializeDefaults() -->
 
     <PreferenceCategory android:title="@string/pref_cat_qemu">
-        <EditPreference
+        <EditTextPreference
             android:title="@string/qemu_ram_title"
             android:summary="@string/qemu_ram_desc"
             android:key="@string/qemu_ram_key"
