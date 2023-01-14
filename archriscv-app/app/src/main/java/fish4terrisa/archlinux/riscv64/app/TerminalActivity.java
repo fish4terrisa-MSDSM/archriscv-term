@@ -604,18 +604,16 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
                                     switchToSession(mTermService.getSessions().get(0));
                                     break;
                                 case 1:
-				    break;
-                                case 2:
                                     // Settings activity.
                                     startActivity(new Intent(TerminalActivity.this, LauncherPreferences.class));
                                     TerminalActivity.this.recreate();
                                     break;
-                                case 3:
+                                case 2:
                                     // Help activity.
                                     startActivity(new Intent(TerminalActivity.this, HelpActivity.class));
                                     TerminalActivity.this.recreate();
                                     break;
-                                case 4:
+                                case 3:
                                     // Exit application.
                                     mTermService.stopSelf();
                                     TerminalActivity.this.finish();
