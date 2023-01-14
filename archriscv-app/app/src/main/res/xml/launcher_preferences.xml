@@ -13,14 +13,6 @@
             android:hint="@string/qemu_ram_hint" />
 
         <EditTextPreference
-            android:title="@string/qemu_hdd1_path_title"
-            android:summary="@string/qemu_hdd1_path_desc"
-            android:key="@string/qemu_hdd1_path_key"
-            android:inputType="text|textNoSuggestions|textVisiblePassword"
-            android:maxLines="1"
-            android:hint="@string/qemu_hdd1_path_hint" />
-
-        <EditTextPreference
             android:title="@string/qemu_hdd2_path_title"
             android:summary="@string/qemu_hdd2_path_desc"
             android:key="@string/qemu_hdd2_path_key"

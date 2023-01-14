@@ -57,7 +57,7 @@ public class LauncherPreferences extends PreferenceActivity {
 
         @Override
         public boolean onPreferenceChange(Preference preference, Object value) {
-            // Do not perform input validation in any other cases.
+            // Do not perform input validation .
             return true;
         }
 
