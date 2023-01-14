@@ -48,7 +48,6 @@ public class LauncherPreferences extends PreferenceActivity {
         public void onCreate(final Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.launcher_preferences);
-	    findPreference(getString(R.string.qemu_ram_key)).setOnPreferenceChangeListener(this);
             findPreference(getString(R.string.qemu_hdd2_path_key)).setOnPreferenceChangeListener(this);
             findPreference(getString(R.string.qemu_cdrom_path_key)).setOnPreferenceChangeListener(this);
             findPreference(getString(R.string.qemu_upstream_dns_key)).setOnPreferenceChangeListener(this);
