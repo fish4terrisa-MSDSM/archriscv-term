@@ -578,7 +578,6 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
                     try {
                         String[] menuEntries = {
                             getString(R.string.launcher_start_default),
-                            getString(R.string.launcher_start_sandbox),
                             getString(R.string.launcher_open_settings),
                             getString(R.string.launcher_open_help),
                             getString(R.string.exit_label)

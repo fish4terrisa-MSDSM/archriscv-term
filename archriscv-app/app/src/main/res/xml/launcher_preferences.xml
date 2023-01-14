@@ -4,12 +4,13 @@
     <!-- NOTE: default values are set in LauncherPreferences.initializeDefaults() -->
 
     <PreferenceCategory android:title="@string/pref_cat_qemu">
-        <ListPreference
+        <EditPreference
             android:title="@string/qemu_ram_title"
             android:summary="@string/qemu_ram_desc"
             android:key="@string/qemu_ram_key"
-            android:entries="@array/qemu_ram_labels"
-            android:entryValues="@array/qemu_ram_values" />
+	    android:inputType="text|textNoSuggestions|textVisiblePassword"
+	    android:maxLines="1"
+            android:hint="@string/qemu_ram_hint" />
 
         <EditTextPreference
             android:title="@string/qemu_hdd1_path_title"

@@ -32,7 +32,7 @@ public class LauncherPreferences extends PreferenceActivity {
         SharedPreferences.Editor prefsEditor = prefs.edit();
 
         if (prefs.getString(context.getString(R.string.qemu_ram_key), "").isEmpty()) {
-            prefsEditor.putString(context.getString(R.string.qemu_ram_key), "2048");
+            prefsEditor.putString(context.getString(R.string.qemu_ram_key), "2048M");
         }
 
 
@@ -49,7 +49,6 @@ public class LauncherPreferences extends PreferenceActivity {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.launcher_preferences);
 
-            findPreference(getString(R.string.qemu_hdd1_path_key)).setOnPreferenceChangeListener(this);
             findPreference(getString(R.string.qemu_hdd2_path_key)).setOnPreferenceChangeListener(this);
             findPreference(getString(R.string.qemu_cdrom_path_key)).setOnPreferenceChangeListener(this);
             findPreference(getString(R.string.qemu_upstream_dns_key)).setOnPreferenceChangeListener(this);
@@ -58,9 +57,7 @@ public class LauncherPreferences extends PreferenceActivity {
 
         @Override
         public boolean onPreferenceChange(Preference preference, Object value) {
-            if (preference.getKey().equals(getString(R.string.qemu_hdd1_path_key))) {
-                return validateFilePath(value.toString(), false);
-            } else if (preference.getKey().equals(getString(R.string.qemu_hdd2_path_key))) {
+            if (preference.getKey().equals(getString(R.string.qemu_hdd2_path_key))) {
                 return validateFilePath(value.toString(), true);
             } else if (preference.getKey().equals(getString(R.string.qemu_cdrom_path_key))) {
                 return validateFilePath(value.toString(), true);

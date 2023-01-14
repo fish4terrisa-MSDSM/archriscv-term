@@ -202,7 +202,7 @@ qemu_session() {
     set -- "${@}" "-machine" "virt"
     set -- "${@}" "-L" "${PREFIX}/share/qemu/"
     # Set amount of RAM.
-    set -- "${@}" "-m" "${CONFIG_QEMU_RAM}M"
+    set -- "${@}" "-m" "${CONFIG_QEMU_RAM}"
 
     # Setup primary hard drive image (with the main OS installation).
     set -- "${@}" "-device" "virtio-blk-device,drive=fish0"

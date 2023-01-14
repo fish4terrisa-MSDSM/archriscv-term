@@ -71,6 +71,7 @@
     <string name="pref_cat_qemu">QEMU</string>
     <string name="qemu_ram_title">RAM</string>
     <string name="qemu_ram_desc">Maximal amount of RAM that may be allocated for virtual machine.\n\nOptimal values are lower than half of physical RAM available on your device.</string>
+    <string name="qemu_ram_hint">Example: 2048M , 3G </string>
     <string name="qemu_hdd1_path_title">Primary hard drive</string>
     <string name="qemu_hdd1_path_desc">Path to a disk image that will be used as primary hard drive. If the image file is not exist, Alpine Term will generate a snapshot of internal hard drive with pre-installed OS.\n\n* This is a default boot device.\n\n* Depending on usage, the image file can grow up to several gigabytes.</string>
     <string name="qemu_hdd1_path_hint">Leave empty to use default.</string>

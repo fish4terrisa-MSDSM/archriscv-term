@@ -224,9 +224,7 @@ public final class TerminalService extends Service implements SessionChangedCall
 
         // Entrypoint script is configured via environment variables.
         // Default values should be same as in LauncherPreferences.initializeDefaults().
-        environment.add("CONFIG_QEMU_RAM=" + prefs.getString(getResources().getString(R.string.qemu_ram_key), "2048"));
-        environment.add("CONFIG_QEMU_HDD1_PATH=" + prefs.getString(getResources().getString(R.string.qemu_hdd1_path_key),
-            getExternalFilesDir(null) + "/os_snapshot.qcow2"));
+        environment.add("CONFIG_QEMU_RAM=" + prefs.getString(getResources().getString(R.string.qemu_ram_key), "2048M"));
         environment.add("CONFIG_QEMU_HDD2_PATH=" + prefs.getString(getResources().getString(R.string.qemu_hdd2_path_key), ""));
         environment.add("CONFIG_QEMU_CDROM_PATH=" + prefs.getString(getResources().getString(R.string.qemu_cdrom_path_key), ""));
         environment.add("CONFIG_QEMU_DNS=" + prefs.getString(getResources().getString(R.string.qemu_upstream_dns_key), "8.8.8.8"));
