@@ -23,7 +23,7 @@ do_steps: &do_steps
         wget -c https://github.com/fish4terrisa-MSDSM/archriscv-term/releases/download/v8.4.0-1/data.bin
         mv data.bin /root/project/archriscv-app/app/src/main/assets/environment/data.bin
         else
-        wget -c https://github.com/fish4terrisa-MSDSM/archriscv-term/releases/download/data-demo/data-demo.bin
+        wget -c https://github.com/fish4terrisa-MSDSM/archriscv-term/releases/download/data-demo-0/data-demo.bin
         mv data-demo.bin /root/project/archriscv-app/app/src/main/assets/environment/data.bin
         fi
         git reset --hard $CIRCLE_SHA1
