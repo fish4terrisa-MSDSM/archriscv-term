@@ -44,7 +44,7 @@ do_steps: &do_steps
       name: clean app
       command: |
         export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
-        source /etc/profile.d/jre.sh
+        #source /etc/profile.d/jre.sh
         cd ~/project
         cp ~/project/archriscv-app/local.properties.circleci ~/project/archriscv-app/local.properties
         cd ~/project/archriscv-app
@@ -53,7 +53,7 @@ do_steps: &do_steps
       name: build apk-release app
       command: |
         export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
-        source /etc/profile.d/jre.sh
+        #source /etc/profile.d/jre.sh
         cd ~/project
         cd archriscv-app
         JAVA_HOME=/usr/lib/jvm/java-11-openjdk/ ./gradlew build
