@@ -15,7 +15,7 @@ do_steps: &do_steps
         pacman -S openssh --noconfirm;
         pacman -S git make wget unzip zip pandoc --noconfirm
         pacman -S jdk11-openjdk --noconfirm
-        source /etc/profile.d/jre.sh
+        #source /etc/profile.d/jre.sh
         export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
         ssh-keyscan -H github.com >> ~/.ssh/known_hosts
         git clone $CIRCLE_REPOSITORY_URL ~/project
