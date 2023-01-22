@@ -25,6 +25,7 @@ You can get the image using [CoelacanthusHex/archriscv-scriptlet](https://github
  - A demo image is provided(It was contained in the demo apk,and it is also in data-demo.bin which is a zip archive):
  - username: root
  - password: toor
+ - the default shell is bash , but you can run `chsh -s /bin/nu` to use [nushell](https://github.com/nushell/nushell) (IT'S REALLY FAST WITH ALL MODERN FEATURES!!!)
 ## System requirements
 
  - AArch64-based device.
