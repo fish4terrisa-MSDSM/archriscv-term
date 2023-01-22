@@ -37,7 +37,7 @@ do_steps: &do_steps
       name: get sdk & ndk
       command: |
         export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
-        source /etc/profile.d/jre.sh
+        #source /etc/profile.d/jre.sh
         cd ~/project
         ~/project/scripts/setup-android-sdk.sh
   - run:
