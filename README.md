@@ -33,7 +33,9 @@ You can get the image using [CoelacanthusHex/archriscv-scriptlet](https://github
  - At least 5GB of space on the internal storage.(might use more if you use the with-demo edition)
  - Internet (if you want to install/update packages).
 ## Building
- - Just like normal gradle project ,run `cd archriscv-app && gradle build`
+ - First download the data.bin and put it under archriscv-app/app/src/main/assets/environment/
+ - use [data-demo.bin](https://github.com/fish4terrisa-MSDSM/archriscv-term/releases/download/data-demo-0/data-demo.bin) or [data.bin](https://github.com/fish4terrisa-MSDSM/archriscv-term/releases/download/v8.4.0-1/data.bin) . Remember to rename the file to data.bin.
+ - Then just like normal gradle project , run `cd archriscv-app && gradle build`
  - [![CircleCI](https://dl.circleci.com/insights-snapshot/gh/fish4terrisa-MSDSM/archriscv-term/flyingfish/build/badge.svg?window=30d)](https://app.circleci.com/insights/github/fish4terrisa-MSDSM/archriscv-term/workflows/build/overview?branch=flyingfish&reporting-window=last-30-days&insights-snapshot=true)
 ## Credits
 
