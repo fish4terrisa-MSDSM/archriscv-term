@@ -257,10 +257,14 @@ qemu_session() {
     	    libadvcp.so -gn "/data/data/fish4terrisa.archlinux.riscv64/files/environment/archriscv-demo.qcow2" "/storage/emulated/0/archriscv.qcow2"
 	fi
     fi
-    if [ -f "/data/data/fish4terrisa.archlinux.riscv64/files/environment/archriscv-demo.qcow2"]; then
+    if [ -f "/data/data/fish4terrisa.archlinux.riscv64/files/environment/archriscv-demo.qcow2" ]; then
     set -- "${@}" "-device" "virtio-blk-device,drive=fish1"
     set -- "${@}" "-drive" "file=/data/data/fish4terrisa.archlinux.riscv64/files/environment/archriscv-demo.qcow2,snapshot=off,format=qcow2,id=fish1"
     fi
+    if [ -f "/storage/emulated/0/archriscv-demo.qcow2" ];then
+	    set -- "${@}" "-device" "virtio-blk-device,drive=fish2"
+	    set -- "${@}" "-drive" "file=/storage/emulated/0/archriscv-demo.qcow2,snapshot=off,format=qcow2,id=fish2"
+fi
     LD_LIBRARY_PATH=${PREFIX}/lib libqemu.so "${@}"
     qemu_ret="${?}"
 
