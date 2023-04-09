@@ -276,11 +276,14 @@ fi
 
     exec libbash.so -c "libbusybox.so killall -9 libsocat.so; libbusybox.so killall -9 libbash.so; exit ${qemu_ret}" > /dev/null 2>&1
 }
+rvvm_session(){
+	librvvm.so /storage/emulated/0/opensbi.bin -m 2g -s 4 -i /sdcard/arch.img -jitcache 128M -k /sdcard/rvvm-linux -append "earlyprintk rw root=/dev/nvme0n1p1 rootwait rootfstype=ext4 LANG=en_US.UTF-8"
 
+}
 # Handle connections to serial consoles (ttyS0-3).
 serial_console_session() {
-    libbusybox.so chmod 777 -R /data/data/fish4terrisa.archlinux.riscv64/
-    exec libsocat.so "$(libbusybox.so tty)",rawer "UNIX-LISTEN:${TMPDIR}/serial$1.sock,unlink-early"
+    #libbusybox.so chmod 777 -R /data/data/fish4terrisa.archlinux.riscv64/
+    #exec libsocat.so "$(libbusybox.so tty)",rawer "UNIX-LISTEN:${TMPDIR}/serial$1.sock,unlink-early"
     libbusybox.so chmod 777 -R ${TMPDIR}
 }
 ##############################################################################
@@ -292,9 +295,9 @@ if [ "${#}" -gt 0 ]; then
     # $1 specifies session type. For available values, see client
     # application sources.
     if [ "${1}" = 0 ]; then
-        qemu_session
+	rvvm_session
     elif [ "${1}" = 1 ]; then
-        qemu_session sandbox-mode
+        rvvm_session sandbox-mode
     elif [ "${1}" = 2 ]; then
         serial_console_session "${SERIAL_CONSOLE_NUMBER}"
     else
