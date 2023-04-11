@@ -31,8 +31,8 @@ public class LauncherPreferences extends PreferenceActivity {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor prefsEditor = prefs.edit();
 
-        if (prefs.getString(context.getString(R.string.qemu_ram_key), "").isEmpty()) {
-            prefsEditor.putString(context.getString(R.string.qemu_ram_key), "2048M");
+        if (prefs.getString(context.getString(R.string.rvvm_ram_key), "").isEmpty()) {
+            prefsEditor.putString(context.getString(R.string.rvvm_ram_key), "2048M");
         }
 
 
