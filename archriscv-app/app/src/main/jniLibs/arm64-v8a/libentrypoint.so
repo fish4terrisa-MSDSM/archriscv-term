@@ -272,7 +272,7 @@ fi
     exec libbash.so -c "libbusybox.so killall -9 libsocat.so; libbusybox.so killall -9 libbash.so; exit ${qemu_ret}" > /dev/null 2>&1
 }
 rvvm_session(){
-	librvvm.so ${CONFIG_OPENSBI_PATH} -m ${CONFIG_RVVM_RAW} -s 4 -i ${CONFIG_IMG_PATH} -jitcache 128M -k ${CONFIG_KERNEL_PATH} -append "earlyprintk rw root=/dev/nvme0n1p1 rootwait rootfstype=ext4 LANG=en_US.UTF-8"
+	librvvm.so ${CONFIG_OPENSBI_PATH} -m ${CONFIG_RVVM_RAW} -s ${CONFIG_SMP_CORE} -i ${CONFIG_IMG_PATH} -jitcache 128M -k ${CONFIG_KERNEL_PATH} -append "earlyprintk rw root=/dev/nvme0n1p1 rootwait rootfstype=ext4 LANG=en_US.UTF-8"
 
 }
 # Handle connections to serial consoles (ttyS0-3).
