@@ -84,6 +84,9 @@
     <string name="qemu_upstream_dns_title">Upstream DNS</string>
     <string name="qemu_upstream_dns_desc">A destination where QEMU will forward all queries from internal DNS server.\n\nGuest OS should be configured to use QEMU\&apos;s internal DNS (10.0.2.3) otherwise this option will not have any effect.</string>
     <string name="qemu_upstream_dns_hint">8.8.8.8</string>
+    <string name="smp_core_title">SMP</string>
+    <string name="smp_core_desc">SMP cores</string>
+    <string name="smp_core_hint">Example: 2 </string>
     <string name="qemu_exposed_ports_title">Exposed ports</string>
     <string name="qemu_exposed_ports_desc">A list of port forwarding rules. Each rule has the following format:\n\n{proto}:{external port}:{internal port}\n\nYou can specify multiple rules by separating them with commas.\n\nExternal ports lower than 1024 cannot be used.</string>
     <string name="qemu_exposed_ports_hint">tcp:8080:80, udp:5353:53, etc…</string>
@@ -115,6 +118,7 @@
     <string name="text_selection_more">更多…</string>
     <!-- Preference keys -->
     <string name="rvvm_ram_key">rvvm_ram</string>
+    <string name="smp_core_key">smp_core</string>
     <string name="kernel_path_key">kernel_path</string>
     <string name="img_path_key">img_path</string>
     <string name="opensbi_path_key">opensbi_path</string>
