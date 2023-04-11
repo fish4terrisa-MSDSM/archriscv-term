@@ -68,19 +68,19 @@
     <string name="notification_action_wake_unlock">Release wakelock</string>
 
     <!-- Preference labels -->
-    <string name="pref_cat_qemu">QEMU</string>
-    <string name="qemu_ram_title">RAM</string>
-    <string name="qemu_ram_desc">Maximal amount of RAM that may be allocated for virtual machine.\n\nOptimal values are lower than half of physical RAM available on your device.</string>
-    <string name="qemu_ram_hint">Example: 2048M , 3G </string>
-    <string name="qemu_hdd1_path_title">Primary hard drive</string>
-    <string name="qemu_hdd1_path_desc">Path to a disk image that will be used as primary hard drive. If the image file is not exist, Alpine Term will generate a snapshot of internal hard drive with pre-installed OS.\n\n* This is a default boot device.\n\n* Depending on usage, the image file can grow up to several gigabytes.</string>
-    <string name="qemu_hdd1_path_hint">Leave empty to use default.</string>
-    <string name="qemu_hdd2_path_title">Secondary hard drive</string>
-    <string name="qemu_hdd2_path_desc">Path to a disk image that will be used as secondary drive.\n\n* Can be selected as boot device from bios menu.\n\n* Depending on usage, the image file can grow up to several gigabytes.</string>
-    <string name="qemu_hdd2_path_hint">Leave empty to disable.</string>
-    <string name="qemu_cdrom_path_title">CD-ROM</string>
-    <string name="qemu_cdrom_path_desc">Path to a disk image that will be used as CD-ROM.\nCan be selected as boot device from bios menu.</string>
-    <string name="qemu_cdrom_path_hint">Leave empty to disable.</string>
+    <string name="pref_cat_rvvm">RVVM</string>
+    <string name="rvvm_ram_title">RAM</string>
+    <string name="rvvm_ram_desc">Maximal amount of RAM that may be allocated for virtual machine.\n\nOptimal values are lower than half of physical RAM available on your device.</string>
+    <string name="rvvm_ram_hint">Example: 2048M , 3G </string>
+    <string name="kernel_path_title">Primary hard drive</string>
+    <string name="kernel_path_desc">Path to a disk image that will be used as primary hard drive. If the image file is not exist, Alpine Term will generate a snapshot of internal hard drive with pre-installed OS.\n\n* This is a default boot device.\n\n* Depending on usage, the image file can grow up to several gigabytes.</string>
+    <string name="kernel_path_hint">Leave empty to use default.</string>
+    <string name="img_path_title">RVVM NVMe raw image</string>
+    <string name="img_path_desc">Path to a disk image that will be used as a NVMe image.\n\n* Depending on usage, the image file can grow up to several gigabytes.</string>
+    <string name="img_path_hint">/sdcard/arch.img</string>
+    <string name="opensbi_path_title">OpenSBI Image</string>
+    <string name="opensbi_path_desc">Path to the opensbi image.</string>
+    <string name="opensbi_path_hint">/sdcard/opensbi.bin</string>
     <string name="qemu_upstream_dns_title">Upstream DNS</string>
     <string name="qemu_upstream_dns_desc">A destination where QEMU will forward all queries from internal DNS server.\n\nGuest OS should be configured to use QEMU\&apos;s internal DNS (10.0.2.3) otherwise this option will not have any effect.</string>
     <string name="qemu_upstream_dns_hint">8.8.8.8</string>
@@ -114,10 +114,10 @@
     <string name="copy_text">复制</string>
     <string name="text_selection_more">更多…</string>
     <!-- Preference keys -->
-    <string name="qemu_ram_key">qemu_ram</string>
-    <string name="qemu_hdd1_path_key">qemu_hdd1_path</string>
-    <string name="qemu_hdd2_path_key">qemu_hdd2_path</string>
-    <string name="qemu_cdrom_path_key">qemu_cdrom_path</string>
+    <string name="rvvm_ram_key">rvvm_ram</string>
+    <string name="kernel_path_key">kernel_path</string>
+    <string name="img_path_key">img_path</string>
+    <string name="opensbi_path_key">opensbi_path</string>
     <string name="qemu_upstream_dns_key">qemu_upstream_dns</string>
     <string name="qemu_exposed_ports_key">qemu_exposed_ports</string>
 </resources>
