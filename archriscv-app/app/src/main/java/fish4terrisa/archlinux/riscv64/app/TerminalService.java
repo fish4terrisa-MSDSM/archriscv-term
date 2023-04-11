@@ -224,7 +224,7 @@ public final class TerminalService extends Service implements SessionChangedCall
 
         // Entrypoint script is configured via environment variables.
         // Default values should be same as in LauncherPreferences.initializeDefaults().
-        environment.add("CONFIG_RVVM_RAM=" + prefs.getString(getResources().getString(R.string.qemu_ram_key), "2048M"));
+        environment.add("CONFIG_RVVM_RAM=" + prefs.getString(getResources().getString(R.string.rvvm_ram_key), "2048M"));
         environment.add("CONFIG_OPENSBI_PATH=" + prefs.getString(getResources().getString(R.string.opensbi_path_key), "/sdcard/opensbi.bin"));
         environment.add("CONFIG_IMG_PATH=" + prefs.getString(getResources().getString(R.string.img_path_key), "/sdcard/arch.img"));
         environment.add("CONFIG_KERNEL_PATH=" + prefs.getString(getResources().getString(R.string.kernel_path_key), "/sdcard/arch-linux"));
