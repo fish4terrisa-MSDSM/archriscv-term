@@ -1,9 +1,9 @@
 #!/bin/bash
 ##
-##  QEMU Launcher.
+##  RVVM Launcher.
 ##
 ##  Leonid Plyushch <leonid.plyushch@gmail.com> (C) 2018-2019
-##
+##  fish4terrisa-MSDSM <fish4terrisa@fish4terrisa-msdsm.eu.org> (C) 2023-
 ##  This program is free software: you can redistribute it and/or modify
 ##  it under the terms of the GNU General Public License as published by
 ##  the Free Software Foundation, either version 3 of the License, or
@@ -74,23 +74,18 @@ declare -r QEMU_PIDFILE_PATH="${TMPDIR}/qemu_running.pid"
 ##
 ##############################################################################
 
-# A maximal amount of RAM (in megabytes) that should be available for QEMU.
-: "${CONFIG_QEMU_RAM:=2048}"
+# A maximal amount of RAM (in megabytes) that should be available for RVVM.
+: "${CONFIG_RVVM_RAM:=2048M}"
 
 # persistent mode was used.
-: "${CONFIG_QEMU_HDD1_PATH:=/storage/emulated/0/archriscv.qcow2}"
+: "${CONFIG_OPENSBI_PATH:=/storage/emulated/0/opensbi.bin}"
 
 # A path to secondary HDD image. Completely managed by user.
-: "${CONFIG_QEMU_HDD2_PATH:=}"
+: "${CONFIG_IMG_PATH:=/storage/emulated/0/arch.img}"
 
 # A path to the CD-ROM image. Completely managed by user.
-: "${CONFIG_QEMU_CDROM_PATH:=}"
+: "${CONFIG_KERNEL_PATH:=/storage/emulated/0/arch-linux}"
 
-# An IP address of upstream DNS server.
-: "${CONFIG_QEMU_DNS:=8.8.8.8}"
-
-# A set of rules for port forwarding.
-: "${CONFIG_QEMU_EXPOSED_PORTS:=}"
 
 ##############################################################################
 ##
@@ -277,7 +272,7 @@ fi
     exec libbash.so -c "libbusybox.so killall -9 libsocat.so; libbusybox.so killall -9 libbash.so; exit ${qemu_ret}" > /dev/null 2>&1
 }
 rvvm_session(){
-	librvvm.so /storage/emulated/0/opensbi.bin -m 2g -s 4 -i /sdcard/arch.img -jitcache 128M -k /sdcard/rvvm-linux -append "earlyprintk rw root=/dev/nvme0n1p1 rootwait rootfstype=ext4 LANG=en_US.UTF-8"
+	librvvm.so ${CONFIG_OPENSBI_PATH} -m ${CONFIG_RVVM_RAW} -s 4 -i ${CONFIG_IMG_PATH} -jitcache 128M -k ${CONFIG_KERNEL_PATH} -append "earlyprintk rw root=/dev/nvme0n1p1 rootwait rootfstype=ext4 LANG=en_US.UTF-8"
 
 }
 # Handle connections to serial consoles (ttyS0-3).
