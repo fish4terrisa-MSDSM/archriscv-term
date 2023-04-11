@@ -224,11 +224,10 @@ public final class TerminalService extends Service implements SessionChangedCall
 
         // Entrypoint script is configured via environment variables.
         // Default values should be same as in LauncherPreferences.initializeDefaults().
-        environment.add("CONFIG_QEMU_RAM=" + prefs.getString(getResources().getString(R.string.qemu_ram_key), "2048M"));
-        environment.add("CONFIG_QEMU_HDD2_PATH=" + prefs.getString(getResources().getString(R.string.qemu_hdd2_path_key), ""));
-        environment.add("CONFIG_QEMU_CDROM_PATH=" + prefs.getString(getResources().getString(R.string.qemu_cdrom_path_key), ""));
-        environment.add("CONFIG_QEMU_DNS=" + prefs.getString(getResources().getString(R.string.qemu_upstream_dns_key), "8.8.8.8"));
-        environment.add("CONFIG_QEMU_EXPOSED_PORTS=" + prefs.getString(getResources().getString(R.string.qemu_exposed_ports_key), ""));
+        environment.add("CONFIG_RVVM_RAM=" + prefs.getString(getResources().getString(R.string.qemu_ram_key), "2048M"));
+        environment.add("CONFIG_OPENSBI_PATH=" + prefs.getString(getResources().getString(R.string.opensbi_path_key), "/sdcard/opensbi.bin"));
+        environment.add("CONFIG_IMG_PATH=" + prefs.getString(getResources().getString(R.string.img_path_key), "/sdcard/arch.img"));
+        environment.add("CONFIG_KERNEL_PATH=" + prefs.getString(getResources().getString(R.string.kernel_path_key), "/sdcard/arch-linux"));
 
         String prefix = Installer.getEnvironmentPrefix(appContext);
         String home = appContext.getFilesDir().getAbsolutePath();
