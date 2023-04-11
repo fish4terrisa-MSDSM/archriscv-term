@@ -19,6 +19,13 @@
             android:inputType="text|textNoSuggestions|textVisiblePassword"
             android:maxLines="1"
             android:hint="@string/img_path_hint" />
+        <EditTextPreference
+            android:title="@string/smp_core_title"
+            android:summary="@string/smp_core_desc"
+            android:key="@string/smp_core_key"
+            android:inputType="text|textNoSuggestions|textVisiblePassword"
+            android:maxLines="1"
+            android:hint="@string/smp_core_hint" />
 
         <EditTextPreference
             android:title="@string/opensbi_path_title"
