@@ -72,7 +72,7 @@ readonly EXTERNAL_STORAGE
 : "${CONFIG_RVVM_RAM:=2048M}"
 
 # persistent mode was used.
-: "${CONFIG_OPENSBI_PATH:=/storage/emulated/0/opensbi.bin}"
+: "${CONFIG_OPENSBI_PATH:=/data/data/fish4terrisa.archlinux.riscv64/files/environment/fw_payload.bin}"
 
 # A path to secondary HDD image. Completely managed by user.
 : "${CONFIG_IMG_PATH:=/storage/emulated/0/arch.img}"
