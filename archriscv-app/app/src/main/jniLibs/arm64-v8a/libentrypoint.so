@@ -81,6 +81,8 @@ readonly EXTERNAL_STORAGE
 : "${CONFIG_KERNEL_PATH:=/storage/emulated/0/arch-linux}"
 
 : "${CONFIG_JIT_CACHE:=64M}"
+
+: "${CONFIG_KERNEL_CMDLINE:=earlyprintk rw root=/dev/nvme0n1p1 rootwait rootfstype=ext4 LANG=en_US.UTF-8}"
 ##############################################################################
 ##
 ##  COMMON FUNCTIONS
@@ -271,8 +273,8 @@ rvvm_session(){
     set -- "${@}" "-i" "${CONFIG_IMG_PATH}"
     set -- "${@}" "-jitcache" "${CONFIG_JIT_CACHE}"
     set -- "${@}" "-k" "${CONFIG_KERNEL_PATH}"
-	librvvm.so ${CONFIG_OPENSBI_PATH}  -append "earlyprintk rw root=/dev/nvme0n1p1 rootwait rootfstype=ext4 LANG=en_US.UTF-8"
-
+    set -- "${@}" "-append" "${CONFIG_KERNEL_CMDLINE}"
+	librvvm.so ${CONFIG_OPENSBI_PATH} "${@}"
 }
 # Handle connections to serial consoles (ttyS0-3).
 serial_console_session() {
