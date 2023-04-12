@@ -33,7 +33,13 @@
             android:inputType="text|textNoSuggestions|textVisiblePassword"
             android:maxLines="1"
             android:hint="@string/smp_core_hint" />
-
+        <EditTextPreference
+            android:title="@string/kernel_cmdline_title"
+            android:summary="@string/kernel_cmdline_desc"
+            android:key="@string/kernel_cmdline_key"
+            android:inputType="text|textNoSuggestions|textVisiblePassword"
+            android:maxLines="1"
+            android:hint="@string/kernel_cmdline_hint" />
         <EditTextPreference
             android:title="@string/opensbi_path_title"
             android:summary="@string/opensbi_path_desc"
