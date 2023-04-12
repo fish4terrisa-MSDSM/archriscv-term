@@ -5,22 +5,16 @@ This is an application emulating a headless riscv64 machine which runs an
 
 Arch Linux riscv64 Term is based on sources of [Termux](https://github.com/termux/termux-app)
 which is a terminal emulator for Android. Core of this application is the
-[QEMU](https://qemu.org) - a generic and open source machine emulator and
-virtualizer.
-
+[RVVM](https://github.com/LekKit/RVVM) - RISC-V CPU & System software 
+implementation written in С.
 ### Features
 
  - Multi user environment.
- - Interaction with the OS through 4 serial consoles.
- - Controlling QEMU state via monitor console.
- - Configurable port forwarding.
- - Access to host's file system over 9P.
-
+ - fast riscv system mode emulation
 ### Restrictions
 
  - Application supports only AArch64 devices.
  - Fixed amount of terminal sessions.
- - Hardware acceleration like KVM is unsupported.
  - Unprivileged user-mode networking only.
 
 ***
@@ -34,7 +28,7 @@ virtualizer.
    - [Notification](#notification)
    - [Extra keys row](#extra-keys-row)
    - [Text input view](#text-input-view)
- - [Getting started](#getting-started)
+   - [Getting started](#getting-started)
    - [Terminal](#terminal)
    - [Touch keyboard shortcuts](#touch-keyboard-shortcuts)
    - [Hardware keyboard shortcuts](#hardware-keyboard-shortcuts)
@@ -59,11 +53,6 @@ Description for menu entries:
  - **Launch**
 
    Launch the virtual machine in normal mode.
-
- - **Launch in sandbox mode**
-
-   Launch the virtual machine in "sandbox" mode. All file system
-   changes will not be saved in this mode.
 
  - **Settings**
 
@@ -167,32 +156,6 @@ For example, pinch-zooming will change text size and short tap
 will act as mouse click. Long tap will toggle text selection
 and [context menu](#context-menu).
 
-<span style="display:block;text-align:center">
-  <img alt="QEMU session screenshot" src="img/qemu_session.jpg" style="width:90%;max-width:700px;">
-</span>
-
-Arch Linux riscv64 Term uses a fixed number of terminal sessions, each of
-them has its own purpose. You cannot add new or remove existing
-ones.
-
-The first session is bootline console (BootLine0) 
-which you can use to boot the system.
-The second-fifth session is bootline console (ttyS0-ttyS3) 
-which you can use to access the shell.
-
-**Important**: serial console do not support automatic window
-resizing. Unfortunately this issue comes from the nature of
-serial console implementation and cannot be fixed. As workaround,
-it is suggested to call command '**resize**' once you changed the
-window size.
-
-The sixth session is a QEMU monitor. It gives you full control
-over QEMU's internal state.
-
-<span style="display:block;text-align:center">
-  <img alt="QEMU monitor screenshot" src="img/qemu_monitor.jpg" style="width:90%;max-width:700px;">
-</span>
-
 #### Touch keyboard shortcuts
 
 Use of keys like Alt, Ctrl, Esc is necessary for working with
@@ -261,7 +224,7 @@ You can enter settings via [main menu](#main-menu).
   <img alt="Application settings screenshot" src="img/app_settings.jpg" style="width:90%;max-width:700px;">
 </span>
 
-These settings affect options passed to the QEMU. Before changing
+These settings affect options passed to the RVVM. Before changing
 something, please read description of the each option carefully
 and understand what you are actually doing. Default values should
 be good for the most cases.
