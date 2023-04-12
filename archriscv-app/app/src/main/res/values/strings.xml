@@ -87,9 +87,9 @@
     <string name="smp_core_title">SMP</string>
     <string name="smp_core_desc">SMP cores</string>
     <string name="smp_core_hint">2</string>
-    <string name="qemu_exposed_ports_title">Exposed ports</string>
-    <string name="qemu_exposed_ports_desc">A list of port forwarding rules. Each rule has the following format:\n\n{proto}:{external port}:{internal port}\n\nYou can specify multiple rules by separating them with commas.\n\nExternal ports lower than 1024 cannot be used.</string>
-    <string name="qemu_exposed_ports_hint">tcp:8080:80, udp:5353:53, etc…</string>
+    <string name="kernel_cmdline_title">Kernel Command Line</string>
+    <string name="kernel_cmdline_desc">The cmdline will be passed to the kernel</string>
+    <string name="kernel_cmdline_hint">earlyprintk rw root=/dev/nvme0n1p1 rootwait rootfstype=ext4 LANG=en_US.UTF-8</string>
 
     <!-- Preference dialogs -->
     <string name="pref_dialog_invalid_file_path_title">Invalid file path specified</string>
@@ -123,6 +123,6 @@
     <string name="kernel_path_key">kernel_path</string>
     <string name="img_path_key">img_path</string>
     <string name="opensbi_path_key">opensbi_path</string>
-    <string name="qemu_upstream_dns_key">qemu_upstream_dns</string>
+    <string name="kernel_cmdline_key">kernel_cmdline</string>
     <string name="qemu_exposed_ports_key">qemu_exposed_ports</string>
 </resources>
