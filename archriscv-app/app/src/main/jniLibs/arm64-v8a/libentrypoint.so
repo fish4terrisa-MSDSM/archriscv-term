@@ -59,12 +59,6 @@ export TMPDIR
 : "${EXTERNAL_STORAGE:=/storage/emulated/0}"
 readonly EXTERNAL_STORAGE
 
-# A path to OS image.
-declare -r OS_IMAGE_PATH="${EXTERNAL_STORAGE}/archriscv.qcow2"
-
-# A path to QEMU's pid file.
-declare -r QEMU_PIDFILE_PATH="${TMPDIR}/qemu_running.pid"
-
 ##############################################################################
 ##
 ##  CONFIGURATION ENVIRONMENT VARIABLES
@@ -272,7 +266,12 @@ fi
     exec libbash.so -c "libbusybox.so killall -9 libsocat.so; libbusybox.so killall -9 libbash.so; exit ${qemu_ret}" > /dev/null 2>&1
 }
 rvvm_session(){
-	librvvm.so ${CONFIG_OPENSBI_PATH} -m ${CONFIG_RVVM_RAW} -s ${CONFIG_SMP_CORE} -i ${CONFIG_IMG_PATH} -jitcache ${CONFIG_JIT_CACHE} -k ${CONFIG_KERNEL_PATH} -append "earlyprintk rw root=/dev/nvme0n1p1 rootwait rootfstype=ext4 LANG=en_US.UTF-8"
+    set -- "-m" "${CONFIG_RVVM_RAW}"
+    set -- "${@}" "-s" "${CONFIG_SMP_CORE}"
+    set -- "${@}" "-i" "${CONFIG_IMG_PATH}"
+    set -- "${@}" "-jitcache" "${CONFIG_JIT_CACHE}"
+    set -- "${@}" "-k" "${CONFIG_KERNEL_PATH}"
+	librvvm.so ${CONFIG_OPENSBI_PATH}  -append "earlyprintk rw root=/dev/nvme0n1p1 rootwait rootfstype=ext4 LANG=en_US.UTF-8"
 
 }
 # Handle connections to serial consoles (ttyS0-3).
