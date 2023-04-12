@@ -119,6 +119,7 @@
     <!-- Preference keys -->
     <string name="rvvm_ram_key">rvvm_ram</string>
     <string name="smp_core_key">smp_core</string>
+    <string name="jit_cache_key">jit_cache</string>
     <string name="kernel_path_key">kernel_path</string>
     <string name="img_path_key">img_path</string>
     <string name="opensbi_path_key">opensbi_path</string>
