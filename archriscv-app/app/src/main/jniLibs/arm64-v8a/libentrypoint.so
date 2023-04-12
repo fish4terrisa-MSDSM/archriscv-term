@@ -80,7 +80,7 @@ readonly EXTERNAL_STORAGE
 : "${CONFIG_IMG_PATH:=/storage/emulated/0/arch.img}"
 
 # A path to the CD-ROM image. Completely managed by user.
-: "${CONFIG_KERNEL_PATH:=/storage/emulated/0/arch-linux}"
+#: "${CONFIG_KERNEL_PATH:=}"
 
 : "${CONFIG_JIT_CACHE:=64M}"
 
@@ -275,19 +275,22 @@ rvvm_session(){
     set -- "${@}" "-s" "${CONFIG_SMP_CORE}"
     set -- "${@}" "-i" "${CONFIG_IMG_PATH}"
     set -- "${@}" "-jitcache" "${CONFIG_JIT_CACHE}"
+    if [ -f "${CONFIG_KERNEL_PATH}" ]; then
     set -- "${@}" "-k" "${CONFIG_KERNEL_PATH}"
+    fi
     set -- "${@}" "-append" "${CONFIG_KERNEL_CMDLINE}"
 	librvvm.so "${@}"
 }
 # Handle connections to serial consoles (ttyS0-3).
 serial_console_session() {
-    #libbusybox.so chmod 777 -R /data/data/fish4terrisa.archlinux.riscv64/
+    libbusybox.so chmod 777 -R /data/data/fish4terrisa.archlinux.riscv64/
     #exec libsocat.so "$(libbusybox.so tty)",rawer "UNIX-LISTEN:${TMPDIR}/serial$1.sock,unlink-early"
-    libbusybox.so chmod 777 -R ${TMPDIR}
+    #libbusybox.so chmod 777 -R ${TMPDIR}
 }
 ##############################################################################
 
 # Ensure that following files and directories are read-writable.
+libbusybox.so mkdir -p "${PREFIX}/tmp" > /dev/null 2>&1 || true
 libbusybox.so chmod -R 777 "${PREFIX}/tmp" > /dev/null 2>&1 || true
 libbusybox.so chmod -R 777 /data/data/fish4terrisa.archlinux.riscv64/ 
 if [ "${#}" -gt 0 ]; then
