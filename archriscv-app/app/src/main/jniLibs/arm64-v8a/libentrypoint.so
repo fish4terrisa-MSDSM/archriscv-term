@@ -268,13 +268,14 @@ fi
     exec libbash.so -c "libbusybox.so killall -9 libsocat.so; libbusybox.so killall -9 libbash.so; exit ${qemu_ret}" > /dev/null 2>&1
 }
 rvvm_session(){
-    set -- "-m" "${CONFIG_RVVM_RAW}"
+    set -- "${CONFIG_OPENSBI_PATH}"
+    set -- "${@}" "-m" "${CONFIG_RVVM_RAW}"
     set -- "${@}" "-s" "${CONFIG_SMP_CORE}"
     set -- "${@}" "-i" "${CONFIG_IMG_PATH}"
     set -- "${@}" "-jitcache" "${CONFIG_JIT_CACHE}"
     set -- "${@}" "-k" "${CONFIG_KERNEL_PATH}"
     set -- "${@}" "-append" "${CONFIG_KERNEL_CMDLINE}"
-	librvvm.so ${CONFIG_OPENSBI_PATH} "${@}"
+	librvvm.so "${@}"
 }
 # Handle connections to serial consoles (ttyS0-3).
 serial_console_session() {
