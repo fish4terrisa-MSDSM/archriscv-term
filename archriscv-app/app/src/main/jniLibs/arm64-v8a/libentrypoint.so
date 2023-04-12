@@ -71,6 +71,8 @@ readonly EXTERNAL_STORAGE
 # A maximal amount of RAM (in megabytes) that should be available for RVVM.
 : "${CONFIG_RVVM_RAM:=2048M}"
 
+: "${CONFIG_SMP_CORE:=4}"
+
 # persistent mode was used.
 : "${CONFIG_OPENSBI_PATH:=/data/data/fish4terrisa.archlinux.riscv64/files/environment/fw_payload.bin}"
 
