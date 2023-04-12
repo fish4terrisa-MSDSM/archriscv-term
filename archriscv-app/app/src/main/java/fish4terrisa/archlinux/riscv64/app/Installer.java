@@ -91,19 +91,6 @@ final class Installer {
                         }
                     }
 
-
-                    // Extract CD-ROM image for QEMU.
-                    try (InputStream inStream = assetManager.open("environment/os_cdrom.iso")) {
-                        try (FileOutputStream outStream = new FileOutputStream(STAGING_PREFIX_PATH + "/os_cdrom.iso")) {
-                            int readBytes;
-                            while ((readBytes = inStream.read(buffer)) != -1) {
-                                outStream.write(buffer, 0, readBytes);
-                            }
-                            outStream.flush();
-                            Os.chmod(STAGING_PREFIX_PATH + "/os_cdrom.iso", 0x100);
-                        }
-                    }
-
                     if (!STAGING_PREFIX_DIR.renameTo(PREFIX_DIR)) {
                         throw new RuntimeException("Unable to rename staging folder");
                     }
