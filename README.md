@@ -26,6 +26,9 @@ You can get the image using [CoelacanthusHex/archriscv-scriptlet](https://github
  - At least 2GB RAM available.
  - At least 5GB of space on the internal storage.
  - Internet (if you want to install/update packages).
+## Screenshot
+<p align="left"><img src="demo.jpg" width="40%"></p>
+
 ## Building
  - Just like normal gradle project , run `cd archriscv-app && gradle build`
  - [![CircleCI](https://dl.circleci.com/insights-snapshot/gh/fish4terrisa-MSDSM/archriscv-term/flyingfish/build/badge.svg?window=30d)](https://app.circleci.com/insights/github/fish4terrisa-MSDSM/archriscv-term/workflows/build/overview?branch=flyingfish&reporting-window=last-30-days&insights-snapshot=true)
