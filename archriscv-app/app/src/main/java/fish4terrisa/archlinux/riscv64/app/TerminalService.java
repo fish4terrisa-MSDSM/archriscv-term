@@ -227,9 +227,10 @@ public final class TerminalService extends Service implements SessionChangedCall
         environment.add("CONFIG_RVVM_RAM=" + prefs.getString(getResources().getString(R.string.rvvm_ram_key), "2048M"));
         environment.add("CONFIG_OPENSBI_PATH=" + prefs.getString(getResources().getString(R.string.opensbi_path_key), "/sdcard/opensbi.bin"));
         environment.add("CONFIG_IMG_PATH=" + prefs.getString(getResources().getString(R.string.img_path_key), "/sdcard/arch.img"));
-        environment.add("CONFIG_KERNEL_PATH=" + prefs.getString(getResources().getString(R.string.kernel_path_key), "/sdcard/arch-linux"));
+        environment.add("CONFIG_KERNEL_PATH=" + prefs.getString(getResources().getString(R.string.kernel_path_key), ""));
         environment.add("CONFIG_SMP_CORE=" + prefs.getString(getResources().getString(R.string.smp_core_key), "4"));
         environment.add("CONFIG_JIT_CACHE=" + prefs.getString(getResources().getString(R.string.jit_cache_key), "64M"));
+        environment.add("CONFIG_KERNEL_CMDLINE=" + prefs.getString(getResources().getString(R.string.kernel_cmdline_key), "earlyprintk rw root=/dev/nvme0n1p1 rootwait rootfstype=ext4 LANG=en_US.UTF-8"));
         String prefix = Installer.getEnvironmentPrefix(appContext);
         String home = appContext.getFilesDir().getAbsolutePath();
         String execPath = appContext.getApplicationInfo().nativeLibraryDir;
