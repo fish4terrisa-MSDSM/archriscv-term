@@ -20,6 +20,13 @@
             android:maxLines="1"
             android:hint="@string/img_path_hint" />
         <EditTextPreference
+            android:title="@string/jit_cache_title"
+            android:summary="@string/jit_cache_desc"
+            android:key="@string/jit_cache_key"
+            android:inputType="text|textNoSuggestions|textVisiblePassword"
+            android:maxLines="1"
+            android:hint="@string/jit_cache_hint" />
+        <EditTextPreference
             android:title="@string/smp_core_title"
             android:summary="@string/smp_core_desc"
             android:key="@string/smp_core_key"
