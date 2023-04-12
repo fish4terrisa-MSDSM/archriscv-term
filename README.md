@@ -15,8 +15,8 @@ with the operating system is done through terminals which are attached to
 the serial consoles of the virtual machine.
 
 ## Usage
-You should put the raw image in /storage/emulated/0/arch.img , put the opensbi image in /storage/emulated/0/opensbi.bin ,put the kernel in /storage/emulated/0/rvvm-linux (No other path supported)
-You can get the image using [CoelacanthusHex/archriscv-scriptlet](https://github.com/CoelacanthusHex/archriscv-scriptlet)
+ - Config the path of kernel,opensbi image,raw disk image in the settings.
+ - You can get the image using [CoelacanthusHex/archriscv-scriptlet](https://github.com/CoelacanthusHex/archriscv-scriptlet)
  - A prebuilt kernel is provided [linux_6.0.zip](https://github.com/LekKit/RVVM/files/10044110/linux_6.0.zip) , which is built by [LekKit](https://github.com/LekKit)
  - A demo image is not provided now.(May be provided later....It may take me some time:-( )
 ## System requirements
