@@ -91,17 +91,6 @@ final class Installer {
                         }
                     }
 
-                    // Extract HDD image for QEMU.
-                    try (InputStream inStream = assetManager.open("environment/os_image.qcow2")) {
-                        try (FileOutputStream outStream = new FileOutputStream(STAGING_PREFIX_PATH + "/os_image.qcow2")) {
-                            int readBytes;
-                            while ((readBytes = inStream.read(buffer)) != -1) {
-                                outStream.write(buffer, 0, readBytes);
-                            }
-                            outStream.flush();
-                            Os.chmod(STAGING_PREFIX_PATH + "/os_image.qcow2", 0x100);
-                        }
-                    }
 
                     // Extract CD-ROM image for QEMU.
                     try (InputStream inStream = assetManager.open("environment/os_cdrom.iso")) {
