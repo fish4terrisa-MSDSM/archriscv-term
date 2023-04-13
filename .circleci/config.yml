@@ -66,7 +66,7 @@ jobs:
    environment:
      CROSS_COMPILE: "aarch64-linux-android-"
    <<: *do_steps
-   imagebuilder:
+  imagebuilder:
    docker:
      - image: archlinux:latest
    <<: *imagebuilder
