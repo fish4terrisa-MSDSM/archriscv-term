@@ -19,16 +19,16 @@ imagebuilder: &imagebuilder
       command: |
         cd ~/
         truncate --size 40g arch.img
-        losetup --partscan --find --show ~/arch.img
-        sfdisk /dev/loop0 <<EOF
+        qemu-nbd -c /dev/nbd0 ~/arch.img
+        sfdisk /dev/nbd0 <<EOF
         label: dos
         label-id: 0x17527589
         device: /dev/loop0
         unit: sectors
         /dev/loop0p1 : start=        2048, type=83, bootable
         EOF
-        mkfs.ext4 /dev/loop0p1
-        e2label /dev/loop0p1 archlinux
+        mkfs.ext4 /dev/nbd0p1
+        e2label /dev/nbd0p1 archlinux
   - run:
       name: mount arch image
       command: |
