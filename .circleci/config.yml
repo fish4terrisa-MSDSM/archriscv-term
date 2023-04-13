@@ -15,19 +15,27 @@ imagebuilder: &imagebuilder
         #pacman -U devtools-riscv64-1.5.1-1-x86_64.pkg.tar.zst
         pacman -S arch-install-scripts git qemu-img riscv64-linux-gnu-gcc devtools-riscv64 --noconfirm
   - run:
-      name: create arch image
+      name: checkout build tree
+      command: |
+        mkdir -p ~/.ssh/
+        pacman -Syy;
+        pacman -S openssh --noconfirm;
+        pacman -S git make wget unzip zip pandoc --noconfirm
+        pacman -S jdk11-openjdk --noconfirm
+        #source /etc/profile.d/jre.sh
+        export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
+        ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+        git clone $CIRCLE_REPOSITORY_URL ~/project
+        mv /root/project/archriscv-app/app/src/main/assets/environment/opensbi.zip /root/project/archriscv-app/app/src/main/assets/environment/data.bin
+        git reset --hard $CIRCLE_SHA1
+  - run:
+      name: unzip arch image
       command: |
         cd ~/project/image
         tar -zxvf ./arch.tar.gz
         mkdir -p ~/arch
         mount ~/project/image/arch.img ~/arch
         
-  - run:
-      name: mount arch image
-      command: |
-        mkdir -p arch
-        mount /dev/loop0p1 ~/arch
-        chown root:root ~/arch\
   - run:
       name: setup the base system
       command: |
