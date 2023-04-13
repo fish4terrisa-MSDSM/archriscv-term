@@ -1,6 +1,9 @@
 version: 2
 general:
   artifacts:
+imagebuilder: &imagebuilder
+ setps:
+  - run: echo "test"
 
 do_steps: &do_steps
  steps:
@@ -63,9 +66,14 @@ jobs:
    environment:
      CROSS_COMPILE: "aarch64-linux-android-"
    <<: *do_steps
+   imagebuilder:
+   docker:
+     - image: archlinux:latest
+   <<: *imagebuilder
+   
 workflows:
   version: 2
   build:
     jobs:
      - android-aarch64
-
+     - imagebuilder
