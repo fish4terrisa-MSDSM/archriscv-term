@@ -9,6 +9,7 @@ imagebuilder: &imagebuilder
         echo "[archlinuxcn]" >> /etc/pacman.conf
         echo "Server = https://repo.archlinuxcn.org/\$arch" >> /etc/pacman.conf
         pacman -Syy
+        pacman-key --init
         pacman -S archlinuxcn-keyring --noconfirm
         #wget -c "https://repo.archlinuxcn.org/x86_64/devtools-riscv64-1.5.1-1-x86_64.pkg.tar.zst"
         #pacman -U devtools-riscv64-1.5.1-1-x86_64.pkg.tar.zst
