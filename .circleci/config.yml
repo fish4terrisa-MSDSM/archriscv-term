@@ -11,7 +11,7 @@ imagebuilder: &imagebuilder
         pacman -Syy
         #wget -c "https://repo.archlinuxcn.org/x86_64/devtools-riscv64-1.5.1-1-x86_64.pkg.tar.zst"
         #pacman -U devtools-riscv64-1.5.1-1-x86_64.pkg.tar.zst
-        pacman -Syy arch-install-scripts git qemu-img riscv64-linux-gnu-gcc devtools-riscv64 
+        pacman -S arch-install-scripts git qemu-img riscv64-linux-gnu-gcc devtools-riscv64 --noconfirm
 do_steps: &do_steps
  steps:
   - run: echo "$CROSS_COMPILE" > ~/_cross_compile
