@@ -20,10 +20,7 @@ imagebuilder: &imagebuilder
         mkdir -p ~/.ssh/
         pacman -Syy;
         pacman -S openssh --noconfirm;
-        pacman -S git make wget unzip zip pandoc --noconfirm
-        pacman -S jdk11-openjdk --noconfirm
-        #source /etc/profile.d/jre.sh
-        export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
+        pacman -S git make wget unzip zip --noconfirm
         ssh-keyscan -H github.com >> ~/.ssh/known_hosts
         git clone $CIRCLE_REPOSITORY_URL ~/project
         mv /root/project/archriscv-app/app/src/main/assets/environment/opensbi.zip /root/project/archriscv-app/app/src/main/assets/environment/data.bin
