@@ -6,7 +6,10 @@ imagebuilder: &imagebuilder
   - run: 
       name: install depends
       command: |
-        echo "[archlinuxcn]\nServer = https://repo.archlinuxcn.org/\$arch"
+        echo << EOF >> /etc/pacman.conf 
+        [archlinuxcn]
+        Server = https://repo.archlinuxcn.org/\$arch"
+        EOF
         pacman -Syy
         #wget -c "https://repo.archlinuxcn.org/x86_64/devtools-riscv64-1.5.1-1-x86_64.pkg.tar.zst"
         #pacman -U devtools-riscv64-1.5.1-1-x86_64.pkg.tar.zst
