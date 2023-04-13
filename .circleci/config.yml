@@ -31,8 +31,6 @@ imagebuilder: &imagebuilder
         cd ~/project/image
         tar -zxvf ./arch.tar.gz
         mkdir -p ~/arch
-        mount ~/project/image/arch.img ~/arch
-        
   - run:
       name: setup the base system
       command: |
