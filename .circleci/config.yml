@@ -14,7 +14,7 @@ imagebuilder: &imagebuilder
         #wget -c "https://repo.archlinuxcn.org/x86_64/devtools-riscv64-1.5.1-1-x86_64.pkg.tar.zst"
         #pacman -U devtools-riscv64-1.5.1-1-x86_64.pkg.tar.zst
         pacman -S arch-install-scripts git qemu-img riscv64-linux-gnu-gcc devtools-riscv64 --noconfirm
-   - run:
+  - run:
       name: create arch image
       command: |
         cd ~/
@@ -29,13 +29,13 @@ imagebuilder: &imagebuilder
         EOF
         mkfs.ext4 /dev/loop0p1
         e2label /dev/loop0p1 archlinux
-   - run:
+  - run:
       name: mount arch image
       command: |
         mkdir -p arch
         mount /dev/loop0p1 ~/arch
         chown root:root ~/arch\
-   - run:
+  - run:
       name: setup the base system
       command: |
       pacstrap -C /usr/share/devtools/pacman-extra-riscv64.conf -M ~/arch base dhclient  
