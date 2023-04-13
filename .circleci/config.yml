@@ -14,6 +14,32 @@ imagebuilder: &imagebuilder
         #wget -c "https://repo.archlinuxcn.org/x86_64/devtools-riscv64-1.5.1-1-x86_64.pkg.tar.zst"
         #pacman -U devtools-riscv64-1.5.1-1-x86_64.pkg.tar.zst
         pacman -S arch-install-scripts git qemu-img riscv64-linux-gnu-gcc devtools-riscv64 --noconfirm
+   - run:
+      name: create arch image
+      command: |
+        cd ~/
+        truncate --size 40g arch.img
+        losetup --partscan --find --show ~/arch.img
+        sfdisk /dev/loop0 <<EOF
+        label: dos
+        label-id: 0x17527589
+        device: /dev/loop0
+        unit: sectors
+        /dev/loop0p1 : start=        2048, type=83, bootable
+        EOF
+        mkfs.ext4 /dev/loop0p1
+        e2label /dev/loop0p1 archlinux
+    - run:
+      name: mount arch image
+      command: |
+        mkdir -p arch
+        mount /dev/loop0p1 ~/arch
+        chown root:root ~/arch\
+    - run:
+      name: setup the base system
+      command: |
+      pacstrap -C /usr/share/devtools/pacman-extra-riscv64.conf -M ~/arch base dhclient
+        
 do_steps: &do_steps
  steps:
   - run: echo "$CROSS_COMPILE" > ~/_cross_compile
