@@ -2,13 +2,14 @@ version: 2
 general:
   artifacts:
 imagebuilder: &imagebuilder
- setps:
+ steps:
   - run: 
       name: install depends
       command: |
         echo "[archlinuxcn]\nServer = https://repo.archlinuxcn.org/\$arch"
-        #get -c "https://repo.archlinuxcn.org/x86_64/devtools-riscv64-1.5.1-1-x86_64.pkg.tar.zst"
-        #acman -U devtools-riscv64-1.5.1-1-x86_64.pkg.tar.zst
+        pacman -Syy
+        #wget -c "https://repo.archlinuxcn.org/x86_64/devtools-riscv64-1.5.1-1-x86_64.pkg.tar.zst"
+        #pacman -U devtools-riscv64-1.5.1-1-x86_64.pkg.tar.zst
         pacman -S arch-install-scripts git qemu-img riscv64-linux-gnu-gcc devtools-riscv64
 do_steps: &do_steps
  steps:
