@@ -29,17 +29,16 @@ imagebuilder: &imagebuilder
         EOF
         mkfs.ext4 /dev/loop0p1
         e2label /dev/loop0p1 archlinux
-    - run:
+   - run:
       name: mount arch image
       command: |
         mkdir -p arch
         mount /dev/loop0p1 ~/arch
         chown root:root ~/arch\
-    - run:
+   - run:
       name: setup the base system
       command: |
-      pacstrap -C /usr/share/devtools/pacman-extra-riscv64.conf -M ~/arch base dhclient
-        
+      pacstrap -C /usr/share/devtools/pacman-extra-riscv64.conf -M ~/arch base dhclient  
 do_steps: &do_steps
  steps:
   - run: echo "$CROSS_COMPILE" > ~/_cross_compile
