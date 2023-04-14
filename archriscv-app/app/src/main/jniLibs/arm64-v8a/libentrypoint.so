@@ -74,7 +74,7 @@ readonly EXTERNAL_STORAGE
 : "${CONFIG_SMP_CORE:=4}"
 
 # persistent mode was used.
-: "${CONFIG_OPENSBI_PATH:=/data/data/fish4terrisa.archlinux.riscv64/files/environment/fw_payload.bin}"
+: "${CONFIG_OPENSBI_PATH:=/data/data/fish4terrisa.archlinux.riscv64/files/environment/lib/fw_payload.bin}"
 
 # A path to secondary HDD image. Completely managed by user.
 : "${CONFIG_IMG_PATH:=/storage/emulated/0/arch.img}"
