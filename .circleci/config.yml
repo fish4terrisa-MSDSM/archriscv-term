@@ -34,7 +34,7 @@ imagebuilder: &imagebuilder
   - run:
       name: setup the base system
       command: |
-        pacstrap -C /usr/share/devtools/pacman-extra-riscv64.conf -M ~/arch base dhclient  
+        #pacstrap -C /usr/share/devtools/pacman-extra-riscv64.conf -M ~/arch base dhclient  
 do_steps: &do_steps
  steps:
   - run: echo "$CROSS_COMPILE" > ~/_cross_compile
@@ -53,6 +53,7 @@ do_steps: &do_steps
         ssh-keyscan -H github.com >> ~/.ssh/known_hosts
         git clone $CIRCLE_REPOSITORY_URL ~/project
         mv /root/project/archriscv-app/app/src/main/assets/environment/opensbi.zip /root/project/archriscv-app/app/src/main/assets/environment/data.bin
+        rm -rf /root/project/archriscv-app/app/src/main/assets/environment/.gitkeep
         git reset --hard $CIRCLE_SHA1
   - run:
       name: build help pages
