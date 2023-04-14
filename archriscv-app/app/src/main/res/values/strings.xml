@@ -72,9 +72,9 @@
     <string name="rvvm_ram_title">RAM</string>
     <string name="rvvm_ram_desc">Maximal amount of RAM that may be allocated for virtual machine.\n\nOptimal values are lower than half of physical RAM available on your device.</string>
     <string name="rvvm_ram_hint">Example: 2048M , 3G </string>
-    <string name="kernel_path_title">Primary hard drive</string>
-    <string name="kernel_path_desc">Path to a disk image that will be used as primary hard drive. If the image file is not exist, Alpine Term will generate a snapshot of internal hard drive with pre-installed OS.\n\n* This is a default boot device.\n\n* Depending on usage, the image file can grow up to several gigabytes.</string>
-    <string name="kernel_path_hint">Leave empty to use default.</string>
+    <string name="kernel_path_title">Kernel</string>
+    <string name="kernel_path_desc">Path to the linux kernel image or the u-boot image. </string>
+    <string name="kernel_path_hint">Leave empty to disable.</string>
     <string name="img_path_title">RVVM NVMe raw image</string>
     <string name="img_path_desc">Path to a disk image that will be used as a NVMe image.\n\n* Depending on usage, the image file can grow up to several gigabytes.</string>
     <string name="img_path_hint">/sdcard/arch.img</string>
@@ -86,7 +86,7 @@
     <string name="jit_cache_hint">64M</string>
     <string name="smp_core_title">SMP</string>
     <string name="smp_core_desc">SMP cores</string>
-    <string name="smp_core_hint">2</string>
+    <string name="smp_core_hint">4</string>
     <string name="kernel_cmdline_title">Kernel Command Line</string>
     <string name="kernel_cmdline_desc">The cmdline will be passed to the kernel</string>
     <string name="kernel_cmdline_hint">earlyprintk rw root=/dev/nvme0n1p1 rootwait rootfstype=ext4 LANG=en_US.UTF-8</string>
@@ -124,5 +124,4 @@
     <string name="img_path_key">img_path</string>
     <string name="opensbi_path_key">opensbi_path</string>
     <string name="kernel_cmdline_key">kernel_cmdline</string>
-    <string name="qemu_exposed_ports_key">qemu_exposed_ports</string>
 </resources>
