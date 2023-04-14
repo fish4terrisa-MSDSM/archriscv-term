@@ -271,7 +271,7 @@ fi
 }
 rvvm_session(){
     set -- "${CONFIG_OPENSBI_PATH}"
-    set -- "${@}" "-m" "${CONFIG_RVVM_RAW}"
+    set -- "${@}" "-m" "${CONFIG_RVVM_RAM}"
     set -- "${@}" "-s" "${CONFIG_SMP_CORE}"
     set -- "${@}" "-i" "${CONFIG_IMG_PATH}"
     set -- "${@}" "-jitcache" "${CONFIG_JIT_CACHE}"
