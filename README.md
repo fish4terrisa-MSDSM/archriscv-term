@@ -16,8 +16,8 @@ the serial consoles of the virtual machine.
 
 ## Usage
  - Config the path of kernel,opensbi image,raw disk image in the settings.
+ - A prebuilt opensbi image with u-boot as payload is included,which is from [LekKit/patches-misc](https://github.com/LekKit/patches-misc)
  - You can get the image using [CoelacanthusHex/archriscv-scriptlet](https://github.com/CoelacanthusHex/archriscv-scriptlet)
- - A prebuilt kernel is provided [linux_6.0.zip](https://github.com/LekKit/RVVM/files/10044110/linux_6.0.zip) , which is built by [LekKit](https://github.com/LekKit)
  - A demo image is not provided now.(May be provided later....It may take me some time:-( )
 ## System requirements
 
@@ -38,9 +38,12 @@ Archlinux riscv64 Term utilizes source code of the following projects:
 
  - [Termux](https://github.com/termux/termux-app)
  - [RVVM](https://github.com/LekKit/RVVM)
+ - [patches-misc](https://github.com/LekKit/patches-misc)
  - [Bash](http://www.gnu.org/software/bash/bash.html)
  - [Busybox](https://busybox.net)
  - [Socat](http://www.dest-unreach.org/socat/)
  - [Advanced Copy](https://github.com/jarun/advcpmv)
  - [Alpine Term](https://github.com/ichit/alpine-term)
  - (I cannot find the source of alpine-term,this is a clone from @ichit)
+## LICENSE
+Released under [the GPLv3 license](https://www.gnu.org/licenses/gpl.html).
