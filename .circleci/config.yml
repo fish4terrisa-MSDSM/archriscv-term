@@ -20,6 +20,7 @@ imagebuilder: &imagebuilder
         mkdir -p ~/.ssh/
         pacman -Syy;
         pacman -S openssh --noconfirm;
+        pacman -S libguestfs --noconfirm
         pacman -S git make wget unzip zip --noconfirm
         ssh-keyscan -H github.com >> ~/.ssh/known_hosts
         git clone $CIRCLE_REPOSITORY_URL ~/project
