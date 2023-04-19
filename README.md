@@ -17,7 +17,7 @@ the serial consoles of the virtual machine.
 ## Usage
  - Config the path of kernel,opensbi image,raw disk image in the settings.
  - A prebuilt opensbi image with u-boot as payload is included,which is from [LekKit/patches-misc](https://github.com/LekKit/patches-misc)
- - You can get the image using [CoelacanthusHex/archriscv-scriptlet](https://github.com/CoelacanthusHex/archriscv-scriptlet)
+ - You can get the image using [CoelacanthusHex/archriscv-scriptlet](https://github.com/CoelacanthusHex/archriscv-scriptlet),but you need to convert the qcow2 to a raw image.I may write a script to build one later.
  - A demo image is not provided now.(May be provided later....It may take me some time:-( )
 ## System requirements
 
