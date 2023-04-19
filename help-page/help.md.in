@@ -44,15 +44,11 @@ On application's cold start you will see a main menu. It allows to
 select a desired action you want to perform, for example launch
 virtual machine or open settings.
 
-<span style="display:block;text-align:center">
-<img alt="Application menu screenshot" src="img/app_menu.jpg" style="width:90%;max-width:700px;">
-</span>
-
 Description for menu entries:
 
  - **Launch**
 
-   Launch the virtual machine in normal mode.
+   Launch the virtual machine.
 
  - **Settings**
 
