@@ -91,15 +91,12 @@ terminal. It provides menu entries for:
 The navigation drawer is revealed by swiping inwards from the left
 part of the screen.
 
-<span style="display:block;text-align:center">
-  <img alt="Navigation drawer screenshot" src="img/app_drawer.jpg" style="width:90%;max-width:700px;">
-</span>
 
  1. A list of sessions. Clicking on a session shows it in the
     terminal while long pressing allows you to specify a session title.
  2. A button to toggle visibility of the touch keyboard. Long
     press will toggle [extra keys row](#extra-keys-row) (3).
-
+ 3. Only one terminal is provided now,but more would be added later when RVVM support serial tty on sockets.
 #### Notification
 
 The notification shown while the Arch Linux riscv64 Term is running, is available
@@ -219,10 +216,6 @@ a hardware keyboard:
 #### Settings
 
 You can enter settings via [main menu](#main-menu).
-
-<span style="display:block;text-align:center">
-  <img alt="Application settings screenshot" src="img/app_settings.jpg" style="width:90%;max-width:700px;">
-</span>
 
 These settings affect options passed to the RVVM. Before changing
 something, please read description of the each option carefully
