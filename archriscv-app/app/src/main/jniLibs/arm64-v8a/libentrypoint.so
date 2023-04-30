@@ -272,10 +272,10 @@ fi
 rvvm_session(){
     while true
     do
-	if [ -f "${TMPDIR}/serial0.pty" ];then
-	    if [ -f "${TMPDIR}/serial1.pty" ];then
-                if [ -f "${TMPDIR}/serial2.pty" ];then
-                    if [ -f "${TMPDIR}/serial3.pty" ];then
+	if [ -e "${TMPDIR}/serial0.pty" ];then
+	    if [ -e "${TMPDIR}/serial1.pty" ];then
+                if [ -e "${TMPDIR}/serial2.pty" ];then
+                    if [ -e "${TMPDIR}/serial3.pty" ];then
                         break
                     fi
                 fi
