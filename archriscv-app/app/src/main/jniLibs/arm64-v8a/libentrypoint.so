@@ -270,19 +270,19 @@ fi
     exec libbash.so -c "libbusybox.so killall -9 libsocat.so; libbusybox.so killall -9 libbash.so; exit ${qemu_ret}" > /dev/null 2>&1
 }
 rvvm_session(){
-    until [ -f ${TMPDIR}/serial0.pty ]
+    until [ -f "${TMPDIR}/serial0.pty" ]
     do
 	/system/bin/sleep 1
     done
-    until [ -f ${TMPDIR}/serial1.pty ]
+    until [ -f "${TMPDIR}/serial1.pty" ]
     do  
 	/system/bin/sleep 1
     done
-    until [ -f ${TMPDIR}/serial2.pty ]
+    until [ -f "${TMPDIR}/serial2.pty" ]
     do  
 	/system/bin/sleep 1
     done
-    until [ -f ${TMPDIR}/serial3.pty ]
+    until [ -f "${TMPDIR}/serial3.pty" ]
     do 
 	/system/bin/sleep 1
     done
