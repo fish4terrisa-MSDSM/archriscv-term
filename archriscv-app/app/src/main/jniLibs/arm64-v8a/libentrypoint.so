@@ -270,20 +270,18 @@ fi
     exec libbash.so -c "libbusybox.so killall -9 libsocat.so; libbusybox.so killall -9 libbash.so; exit ${qemu_ret}" > /dev/null 2>&1
 }
 rvvm_session(){
-    until [ -f "${TMPDIR}/serial0.pty" ]
+    while true
     do
-	/system/bin/sleep 1
-    done
-    until [ -f "${TMPDIR}/serial1.pty" ]
-    do  
-	/system/bin/sleep 1
-    done
-    until [ -f "${TMPDIR}/serial2.pty" ]
-    do  
-	/system/bin/sleep 1
-    done
-    until [ -f "${TMPDIR}/serial3.pty" ]
-    do 
+	if [ -f "${TMPDIR}/serial0.pty" ];then
+	    if [ -f "${TMPDIR}/serial1.pty" ];then
+                if [ -f "${TMPDIR}/serial2.pty" ];then
+                    if [ -f "${TMPDIR}/serial3.pty" ];then
+                        break
+                    fi
+                fi
+            fi
+	fi
+
 	/system/bin/sleep 1
     done
     set -- "${CONFIG_OPENSBI_PATH}"
