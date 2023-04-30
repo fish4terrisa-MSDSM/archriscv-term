@@ -305,7 +305,7 @@ rvvm_session(){
 # Handle connections to serial consoles (ttyS0-3).
 serial_console_session() {
     libbusybox.so chmod 777 -R /data/data/fish4terrisa.archlinux.riscv64/
-    exec libsocat.so "$(libbusybox.so tty)",rawer,link=${TMPDIR}/serial$1.pty stdio,rawer
+    exec libsocat.so pty,rawer,link=${TMPDIR}/serial$1.pty stdio,rawer
     #libbusybox.so chmod 777 -R ${TMPDIR}
 }
 ##############################################################################
