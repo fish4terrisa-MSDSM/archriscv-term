@@ -272,19 +272,19 @@ fi
 rvvm_session(){
     until [ -f ${TMPDIR}/serial0.pty ]
     do
-	sleep 5
+	/system/bin/sleep 5
     done
     until [ -f ${TMPDIR}/serial1.pty ]
     do  
-	sleep 5
+	/system/bin/sleep 5
     done
     until [ -f ${TMPDIR}/serial2.pty ]
     do  
-	sleep 5
+	/system/bin/sleep 5
     done
     until [ -f ${TMPDIR}/serial3.pty ]
     do 
-	sleep 5
+	/system/bin/sleep 5
     done
     set -- "${CONFIG_OPENSBI_PATH}"
     set -- "${@}" "-m" "${CONFIG_RVVM_RAM}"
