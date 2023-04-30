@@ -275,6 +275,12 @@ rvvm_session(){
     set -- "${@}" "-s" "${CONFIG_SMP_CORE}"
     set -- "${@}" "-i" "${CONFIG_IMG_PATH}"
     set -- "${@}" "-jitcache" "${CONFIG_JIT_CACHE}"
+    set -- "${@}" "-serial" "${TMPDIR}/serial0.pty"
+    set -- "${@}" "-serial" "${TMPDIR}/serial1.pty"
+    set -- "${@}" "-serial" "${TMPDIR}/serial2.pty"
+    set -- "${@}" "-serial" "${TMPDIR}/serial3.pty"
+    set -- "${@}" "-serial" "${TMPDIR}/serial4.pty"
+    set -- "${@}" "-serial" "stdout"
     if [ -f "${CONFIG_KERNEL_PATH}" ]; then
     set -- "${@}" "-k" "${CONFIG_KERNEL_PATH}"
     fi
@@ -284,7 +290,7 @@ rvvm_session(){
 # Handle connections to serial consoles (ttyS0-3).
 serial_console_session() {
     libbusybox.so chmod 777 -R /data/data/fish4terrisa.archlinux.riscv64/
-    #exec libsocat.so "$(libbusybox.so tty)",rawer "UNIX-LISTEN:${TMPDIR}/serial$1.sock,unlink-early"
+    exec libsocat.so "$(libbusybox.so tty)",rawer,link=${TMPDIR}/serial$1.pty stdio,rawer
     #libbusybox.so chmod 777 -R ${TMPDIR}
 }
 ##############################################################################
