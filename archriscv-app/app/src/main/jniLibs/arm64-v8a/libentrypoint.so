@@ -270,6 +270,22 @@ fi
     exec libbash.so -c "libbusybox.so killall -9 libsocat.so; libbusybox.so killall -9 libbash.so; exit ${qemu_ret}" > /dev/null 2>&1
 }
 rvvm_session(){
+    until [ -f ${TMPDIR}/serial0.pty ]
+    do
+	sleep 5
+    done
+    until [ -f ${TMPDIR}/serial1.pty ]
+    do  
+	sleep 5
+    done
+    until [ -f ${TMPDIR}/serial2.pty ]
+    do  
+	sleep 5
+    done
+    until [ -f ${TMPDIR}/serial3.pty ]
+    do 
+	sleep 5
+    done
     set -- "${CONFIG_OPENSBI_PATH}"
     set -- "${@}" "-m" "${CONFIG_RVVM_RAM}"
     set -- "${@}" "-s" "${CONFIG_SMP_CORE}"
@@ -279,7 +295,6 @@ rvvm_session(){
     set -- "${@}" "-serial" "${TMPDIR}/serial1.pty"
     set -- "${@}" "-serial" "${TMPDIR}/serial2.pty"
     set -- "${@}" "-serial" "${TMPDIR}/serial3.pty"
-    set -- "${@}" "-serial" "${TMPDIR}/serial4.pty"
     set -- "${@}" "-serial" "stdout"
     if [ -f "${CONFIG_KERNEL_PATH}" ]; then
     set -- "${@}" "-k" "${CONFIG_KERNEL_PATH}"
