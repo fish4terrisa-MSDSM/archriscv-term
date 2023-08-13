@@ -599,7 +599,7 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
 				    addNewSession(String.format(Locale.US, "/dev/ttyS%d", 1), TerminalService.SESSION_TYPE_SERIAL, 1);
 				    addNewSession(String.format(Locale.US, "/dev/ttyS%d", 2), TerminalService.SESSION_TYPE_SERIAL, 2);
 				    addNewSession(String.format(Locale.US, "/dev/ttyS%d", 3), TerminalService.SESSION_TYPE_SERIAL, 3);
-                                    addNewSession("RVVM Terminal", TerminalService.SESSION_TYPE_QEMU, -1);
+                                    addNewSession("/dev/ttyS4", TerminalService.SESSION_TYPE_QEMU, -1);
                                     switchToSession(mTermService.getSessions().get(0));
                                     break;
                                 case 1:
