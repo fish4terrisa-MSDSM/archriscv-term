@@ -45,7 +45,7 @@ do_steps: &do_steps
       name: checkout build tree
       command: |
         mkdir -p ~/.ssh/
-        pacman -Syy;
+        pacman -Syyu --noconfirm;
         pacman -S openssh --noconfirm;
         pacman -S git make wget unzip zip pandoc --noconfirm
         pacman -S jdk11-openjdk --noconfirm
