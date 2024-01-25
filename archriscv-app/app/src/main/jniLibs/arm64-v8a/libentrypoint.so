@@ -302,6 +302,8 @@ rvvm_session(){
     fi
     set -- "${@}" "-append" "${CONFIG_KERNEL_CMDLINE}"
 	librvvm.so "${@}"
+	RVVM_STATUS=${?}
+	exec libbash.so -c "libbusybox.so killall -9 libsocat.so; libbusybox.so killall -9 libbash.so; exit ${RVVM_STATUS}" > /dev/null 2>&1
 }
 # Handle connections to serial consoles (ttyS0-3).
 serial_console_session() {
