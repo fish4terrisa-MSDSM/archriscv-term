@@ -276,7 +276,9 @@ rvvm_session(){
 	    if [ -e "${TMPDIR}/serial1.pty" ];then
                 if [ -e "${TMPDIR}/serial2.pty" ];then
                     if [ -e "${TMPDIR}/serial3.pty" ];then
+			    if [ -e "${TMPDIR}/serial4.pty" ];then
                         break
+			    fi
                     fi
                 fi
             fi
@@ -293,6 +295,7 @@ rvvm_session(){
     set -- "${@}" "-serial" "${TMPDIR}/serial1.pty"
     set -- "${@}" "-serial" "${TMPDIR}/serial2.pty"
     set -- "${@}" "-serial" "${TMPDIR}/serial3.pty"
+    set -- "${@}" "-serial" "${TMPDIR}/serial4.pty"
     set -- "${@}" "-serial" "stdout"
     if [ -f "${CONFIG_KERNEL_PATH}" ]; then
     set -- "${@}" "-k" "${CONFIG_KERNEL_PATH}"

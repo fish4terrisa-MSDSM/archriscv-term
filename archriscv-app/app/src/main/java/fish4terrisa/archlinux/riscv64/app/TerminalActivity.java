@@ -74,6 +74,7 @@ import fish4terrisa.archlinux.riscv64.terminal.TerminalSession;
 import fish4terrisa.archlinux.riscv64.terminal.TerminalSession.SessionChangedCallback;
 import fish4terrisa.archlinux.riscv64.terminal.TextStyle;
 import fish4terrisa.archlinux.riscv64.view.TerminalView;
+import fish4terrisa.archlinux.riscv64.floatwindows.TermuxFloatService;
 /**
  * A terminal emulator activity.
  * <p/>
@@ -290,7 +291,7 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
         setContentView(R.layout.drawer_layout);
         mTerminalView = findViewById(R.id.terminal_view);
         mTerminalView.setOnKeyListener(new InputDispatcher(this));
-
+	//startService(new Intent(this, TermuxFloatService.class));
         float dipInPixels = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1, getResources().getDisplayMetrics());
         int defaultFontSize = Math.round(7.5f * dipInPixels);
 
@@ -396,7 +397,11 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
         });
 
         registerForContextMenu(mTerminalView);
-
+	/*Intent floatIntent = new Intent(this, TermuxFloatService.class);
+	startService(floatIntent);
+	if (!bindService(floatIntent, this, 0)) {
+		throw new RuntimeException("bindService() failed");
+	}*/
         Intent serviceIntent = new Intent(this, TerminalService.class);
         // Start the service and make it run regardless of who is bound to it:
         startService(serviceIntent);
@@ -594,7 +599,17 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
                         dialog.setItems(menuEntries, (dialog1, which) -> {
                             switch (which) {
                                 case 0:
+					try {
+					startService(new Intent(this, TermuxFloatService.class));   
+					} catch (Exception e) {
+					}
                                     // Default QEMU session.
+				    /*try {
+				    startActivity(new Intent(TerminalActivity.this, TermuxFloatActivity.class));
+				    } catch (Exception ex)
+    					{
+				        Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
+				    }*/
                                     addNewSession(String.format(Locale.US, "/dev/ttyS%d", 0), TerminalService.SESSION_TYPE_SERIAL, 0);
 				    addNewSession(String.format(Locale.US, "/dev/ttyS%d", 1), TerminalService.SESSION_TYPE_SERIAL, 1);
 				    addNewSession(String.format(Locale.US, "/dev/ttyS%d", 2), TerminalService.SESSION_TYPE_SERIAL, 2);
