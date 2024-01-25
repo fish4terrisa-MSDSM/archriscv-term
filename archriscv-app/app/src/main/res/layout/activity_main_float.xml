@@ -1,0 +1,17 @@
+<fish4terrisa.archlinux.riscv64.floatwindows.TermuxFloatView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/window_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/shape_line_161823"
+    android:padding="1px" >
+
+    <fish4terrisa.archlinux.riscv64.view.TerminalView
+        android:id="@+id/terminal_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:scrollbars="vertical" />
+
+</fish4terrisa.archlinux.riscv64.floatwindows.TermuxFloatView>
