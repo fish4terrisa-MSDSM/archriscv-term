@@ -54,5 +54,13 @@
             android:inputType="text|textNoSuggestions|textVisiblePassword"
             android:maxLines="1"
             android:hint="@string/kernel_path_hint" />
+	<EditTextPreference
+            android:title="@string/exposed_ports_title"
+            android:summary="@string/exposed_ports_desc"
+            android:key="@string/exposed_ports_key"
+            android:inputType="text|textNoSuggestions|textVisiblePassword"
+            android:maxLines="1024"
+            android:hint="@string/exposed_ports_hint" />
+
     </PreferenceCategory>
 </PreferenceScreen>

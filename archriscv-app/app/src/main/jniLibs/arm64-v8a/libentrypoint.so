@@ -85,6 +85,7 @@ readonly EXTERNAL_STORAGE
 : "${CONFIG_JIT_CACHE:=64M}"
 
 : "${CONFIG_KERNEL_CMDLINE:=earlyprintk rw root=/dev/nvme0n1p1 rootwait rootfstype=ext4 LANG=en_US.UTF-8}"
+: "${CONFIG_EXPOSED_PORTS:=}"
 ##############################################################################
 ##
 ##  COMMON FUNCTIONS
@@ -291,6 +292,12 @@ rvvm_session(){
     set -- "${@}" "-s" "${CONFIG_SMP_CORE}"
     set -- "${@}" "-i" "${CONFIG_IMG_PATH}"
     set -- "${@}" "-jitcache" "${CONFIG_JIT_CACHE}"
+    if [ -n "${CONFIG_EXPOSED_PORTS}" ]; then
+	    for page_rule in ${CONFIG_EXPOSED_PORTS}
+	    do
+		    set -- "${@}" "-portfwd" "${page_rule}"
+	    done
+    fi
     set -- "${@}" "-serial" "${TMPDIR}/serial0.pty"
     set -- "${@}" "-serial" "${TMPDIR}/serial1.pty"
     set -- "${@}" "-serial" "${TMPDIR}/serial2.pty"

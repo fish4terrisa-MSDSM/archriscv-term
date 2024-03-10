@@ -112,6 +112,11 @@
         <string name="notification_title">archriscv-term:Float</string>
         <string name="notification_message_visible">触摸隐藏窗口。</string>
     <string name="notification_message_hidden">触摸隐藏窗口。</string>
+    <string name="exposed_ports_title">Exposed ports</string>
+    <string name="exposed_ports_desc">A list of port forwarding rules. Each rule has the following format:\n\n{proto}/{external port}={internal port}\n\nYou can specify multiple rules by separating them with return.\n\nExternal ports lower than 1024 cannot be used.</string>
+    <string name="exposed_ports_hint">tcp/8080=80, udp/5353=53, tcp/127.0.0.1:2022=22, etc…</string>
+
+    <string name="exposed_ports_key">exposed_ports</string>
 
     <string name="paste_text">粘贴</string>
     <string name="copy_text">复制</string>

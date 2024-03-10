@@ -231,6 +231,7 @@ public final class TerminalService extends Service implements SessionChangedCall
         environment.add("CONFIG_SMP_CORE=" + prefs.getString(getResources().getString(R.string.smp_core_key), "4"));
         environment.add("CONFIG_JIT_CACHE=" + prefs.getString(getResources().getString(R.string.jit_cache_key), "64M"));
         environment.add("CONFIG_KERNEL_CMDLINE=" + prefs.getString(getResources().getString(R.string.kernel_cmdline_key), "earlyprintk rw root=/dev/nvme0n1p1 rootwait rootfstype=ext4 LANG=en_US.UTF-8"));
+	environment.add("CONFIG_EXPOSED_PORTS=" + prefs.getString(getResources().getString(R.string.exposed_ports_key), ""));
         String prefix = Installer.getEnvironmentPrefix(appContext);
         String home = appContext.getFilesDir().getAbsolutePath();
         String execPath = appContext.getApplicationInfo().nativeLibraryDir;

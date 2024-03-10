@@ -51,6 +51,7 @@ public class LauncherPreferences extends PreferenceActivity {
             findPreference(getString(R.string.img_path_key)).setOnPreferenceChangeListener(this);
             findPreference(getString(R.string.jit_cache_key)).setOnPreferenceChangeListener(this);
             findPreference(getString(R.string.kernel_cmdline_key)).setOnPreferenceChangeListener(this);
+	    findPreference(getString(R.string.exposed_ports_key)).setOnPreferenceChangeListener(this);
         }
 
         @Override
