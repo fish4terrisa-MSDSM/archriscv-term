@@ -42,10 +42,9 @@ Archlinux riscv64 Term utilizes source code of the following projects:
  - [Bash](http://www.gnu.org/software/bash/bash.html)
  - [Busybox](https://busybox.net)
  - [Socat](http://www.dest-unreach.org/socat/)
- - [Advanced Copy](https://github.com/jarun/advcpmv)
  - [Alpine Term](https://github.com/ichit/alpine-term)
  - (I cannot find the source of alpine-term,this is a clone from @ichit)
 
 Welcome for any pull requests!
 ## LICENSE
-Released under [the GPLv3 license](https://www.gnu.org/licenses/gpl.html).
+Released under [the AGPLv3 license](https://www.gnu.org/licenses/agpl-3.0.html).
