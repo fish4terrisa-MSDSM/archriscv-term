@@ -84,7 +84,7 @@
     <string name="opensbi_path_desc">Path to the opensbi image.</string>
     <string name="opensbi_path_hint">/sdcard/opensbi.bin</string>
     <string name="jit_cache_title">JIT Cache</string>
-    <string name="jit_cache_desc">The mem used for jitcache.\n\nLower than 1M will have a performance loss.\n\nRecommend larger tahn 64M</string>
+    <string name="jit_cache_desc">The mem used for jitcache.\n\nLower than 1M will have a performance loss.\n\nRecommend larger than 64M</string>
     <string name="jit_cache_hint">64M</string>
     <string name="smp_core_title">SMP</string>
     <string name="smp_core_desc">SMP cores</string>
