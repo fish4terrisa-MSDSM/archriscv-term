@@ -1,3 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string-array name="disk_type_labels">
+        <item>NVMe (Recommended)</item>
+        <item>ATA (Deprecated)</item>
+    </string-array>
+
+    <string-array name="disk_type_values">
+        <item>nvme</item>
+        <item>ata</item>
+    </string-array>
 </resources>

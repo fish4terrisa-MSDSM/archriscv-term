@@ -4,6 +4,12 @@
     <!-- NOTE: default values are set in LauncherPreferences.initializeDefaults() -->
 
     <PreferenceCategory android:title="@string/pref_cat_rvvm">
+	<ListPreference
+            android:title="@string/disk_type_title"
+            android:summary="@string/disk_type_desc"
+            android:key="@string/disk_type_key"
+            android:entries="@array/disk_type_labels"
+            android:entryValues="@array/disk_type_values" />
         <EditTextPreference
             android:title="@string/rvvm_ram_title"
             android:summary="@string/rvvm_ram_desc"

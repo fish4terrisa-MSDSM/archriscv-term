@@ -34,7 +34,9 @@ public class LauncherPreferences extends PreferenceActivity {
         if (prefs.getString(context.getString(R.string.rvvm_ram_key), "").isEmpty()) {
             prefsEditor.putString(context.getString(R.string.rvvm_ram_key), "2048M");
         }
-
+	if (prefs.getString(context.getString(R.string.disk_type_key), "").isEmpty()) {
+            prefsEditor.putString(context.getString(R.string.disk_type_key), "nvme");
+        }
 
 
         prefsEditor.apply();
@@ -48,6 +50,7 @@ public class LauncherPreferences extends PreferenceActivity {
 	    findPreference(getString(R.string.rvvm_ram_key)).setOnPreferenceChangeListener(this);
             findPreference(getString(R.string.opensbi_path_key)).setOnPreferenceChangeListener(this);
             findPreference(getString(R.string.kernel_path_key)).setOnPreferenceChangeListener(this);
+	    findPreference(getString(R.string.disk_type_key)).setOnPreferenceChangeListener(this);
             findPreference(getString(R.string.img_path_key)).setOnPreferenceChangeListener(this);
             findPreference(getString(R.string.jit_cache_key)).setOnPreferenceChangeListener(this);
             findPreference(getString(R.string.kernel_cmdline_key)).setOnPreferenceChangeListener(this);

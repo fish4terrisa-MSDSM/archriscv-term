@@ -16,7 +16,7 @@
     <!-- Shared storage permission denial dialog -->
     <string name="storage_permission_denied_title">Storage permission denial</string>
     <string name="storage_permission_denied_body">You just have denied shared storage access permission, but the application cannot work without it.\n\nIf you do not allow access to your storage, please, uninstall the application.\n\nSorry.</string>
-
+    
     <!-- Launcher dialog -->
     <string name="launcher_title">Menu</string>
     <string name="launcher_start_default">Launch</string>
@@ -72,11 +72,13 @@
     <string name="rvvm_ram_title">RAM</string>
     <string name="rvvm_ram_desc">Maximal amount of RAM that may be allocated for virtual machine.\n\nOptimal values are lower than half of physical RAM available on your device.</string>
     <string name="rvvm_ram_hint">Example: 2048M , 3G </string>
+    <string name="disk_type_title">Disk Type</string>
+    <string name="disk_type_desc">The type of the disk you want to use. Recommended NVMe, ATA is deprecated and for compatibility reasons</string>
     <string name="kernel_path_title">Kernel</string>
     <string name="kernel_path_desc">Path to the linux kernel image or the u-boot image. </string>
     <string name="kernel_path_hint">Leave empty to disable.</string>
-    <string name="img_path_title">RVVM NVMe raw image</string>
-    <string name="img_path_desc">Path to a disk image that will be used as a NVMe image.\n\n* Depending on usage, the image file can grow up to several gigabytes.</string>
+    <string name="img_path_title">RVVM NVMe/ATA raw image</string>
+    <string name="img_path_desc">Path to a disk image that will be used as a NVMe/ATA image.\n\n* Depending on usage, the image file can grow up to several gigabytes.</string>
     <string name="img_path_hint">/sdcard/arch.img</string>
     <string name="opensbi_path_title">OpenSBI Image</string>
     <string name="opensbi_path_desc">Path to the opensbi image.</string>
@@ -122,6 +124,7 @@
     <string name="copy_text">复制</string>
     <string name="text_selection_more">更多…</string>
     <!-- Preference keys -->
+    <string name="disk_type_key">disk_type</string>
     <string name="rvvm_ram_key">rvvm_ram</string>
     <string name="smp_core_key">smp_core</string>
     <string name="jit_cache_key">jit_cache</string>
