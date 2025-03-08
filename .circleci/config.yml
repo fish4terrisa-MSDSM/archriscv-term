@@ -88,9 +88,16 @@ do_steps: &do_steps
         JAVA_HOME=/usr/lib/jvm/java-11-openjdk/ ./gradlew build
         cd ~/project/archriscv-app/app/build/outputs/apk/release/
         zip -r archlinux-riscv64-term.apk.zip app-release.apk
+        cd ~/project/archriscv-app/app/build/outputs/apk/debug/
+        zip -r archlinux-riscv64-term-debug.apk.zip app-debug.apk
   - store_artifacts:
       path: ~/project/archriscv-app/app/build/outputs/apk/release/archlinux-riscv64-term.apk.zip
       destination: archlinux-riscv64-term.apk.zip
+      
+  - store_artifacts:
+      path: ~/project/archriscv-app/app/build/outputs/apk/debug/archlinux-riscv64-term-debug.apk.zip
+      destination: archlinux-riscv64-term.apk.zip
+
 jobs:
   android-aarch64:
    docker:
